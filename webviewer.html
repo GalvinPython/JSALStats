@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebViewer for the @JSALStats Bot on Twitter</title>
+</head>
+
+<body>
+
+    <!--Message-->
+
+    <h1>See all of Jack's Stats with the simple push of F5<br><br></h1>
+    <!--JackSucksAtLife-->
+    <!--JackSucksAtLife Sub Count-->
+
+    <div class="main">
+    <h1>JackSucksAtLife YouTube Channel Statistics</h1>
+    <b>JackSucksAtLife Sub Count</b>
+    <div id="subCount1"></div>
+
+    <script>
+
+        // Get Subscribers
+        const youtubeKey = 'AIzaSyCQth83qBb3BbJ9l-Lg5Lb4CYKG8_j33XU';
+        const youtubeUser1 = 'UCewMTclBJZPaNEfbf-qYMGA';
+        const subCount1 = document.getElementById('subCount1');
+
+        let getSubscribers = () => {
+
+            fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${youtubeUser1}&key=${youtubeKey}`)
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data);
+                subCount1.innerHTML = data["items"][0].statistics.subscriberCount;
+            })
+
+        }
+
+        getSubscribers();
+
+    </script>
+
+    <!--JackSucksAtLife View Count-->
+
+    <b>JackSucksAtLife View Count</b>
+    <div id="viewCount1"></div>
+
+    <script>
+
+        // Get Views
+        const viewCount1 = document.getElementById('viewCount1');
+
+        let getViews = () => {
+
+            fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${youtubeUser1}&key=${youtubeKey}`)
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data);
+                viewCount1.innerHTML = data["items"][0].statistics.viewCount;
+            })
+
+        }
+
+        getViews();
+
+    </script>
+        
+    <!--JackSucksAtStuff-->
+    <!--JackSucksAtStuff Sub Count-->
+
+    <h1>JackSucksAtStuff YouTube Channel Statistics</h1>
+    <b>JackSucksAtStuff Sub Count</b>
+    <div id="subCount2"></div>
+
+    <script>
+    
+        // Get Subscribers
+        const youtubeUser2 = 'UCxLIJccyaRQDeyu6RzUsPuw';
+        const subCount2 = document.getElementById('subCount2');
+    
+        let getSubscribers2 = () => {
+    
+            fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${youtubeUser2}&key=${youtubeKey}`)
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data);
+                subCount2.innerHTML = data["items"][0].statistics.subscriberCount;
+            })
+    
+        }
+    
+        getSubscribers2();
+    
+    </script>
+
+    <!--JackSucksAtStuff View Count-->
+
+    <b>JackSucksAtStuff View Count</b>
+    <div id="viewCount2"></div>
+
+    <script>
+
+        // Get Views
+        const viewCount2 = document.getElementById('viewCount2');
+
+        let getViews2 = () => {
+
+            fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${youtubeUser2}&key=${youtubeKey}`)
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data);
+                viewCount2.innerHTML = data["items"][0].statistics.viewCount;
+            })
+
+        }
+
+        getViews2();
+
+    </script>
+
+    <!--Jack Massey Welsh-->
+    <!--Jack Massey Welsh Sub Count-->
+
+    <h1>Jack Massey Welsh YouTube Channel Statistics</h1>
+    <b>Jack Massey Welsh Sub Count</b>
+    <div id="subCount3"></div>
+
+    <script>
+
+        // Get Subscribers
+        const youtubeUser3 = 'UCyktGLVQchOpvKgL7GShDWA';
+        const subCount3 = document.getElementById('subCount3');
+
+        let getSubscribers3 = () => {
+
+            fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${youtubeUser3}&key=${youtubeKey}`)
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data);
+                subCount3.innerHTML = data["items"][0].statistics.subscriberCount;
+            })
+
+        }
+
+        getSubscribers3();
+
+    </script>
+
+    <!--Jack Massey Welsh View Count-->
+
+    <b>JackSucksAtStuff View Count</b>
+    <div id="viewCount3"></div>
+
+    <script>
+
+        // Get Views
+        const viewCount3 = document.getElementById('viewCount3');
+
+        let getViews3 = () => {
+
+            fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${youtubeUser3}&key=${youtubeKey}`)
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data);
+                viewCount3.innerHTML = data["items"][0].statistics.viewCount;
+            })
+
+        }
+
+        getViews3();
+
+    </script>
+
+    <!--JacksEpicYoutubeChannelFullOfFunTimesAndFunHiRickX-->
+    <!--JacksEpicYoutubeChannelFullOfFunTimesAndFunHiRickX Sub Count-->
+
+    <h1>JacksEpicYoutubeChannelFullOfFunTimesAndFunHiRickX Channel Statistics</h1>
+    <b>JacksEpicYoutubeChannelFullOfFunTimesAndFunHiRickX Sub Count</b>
+    <div id="subCount4"></div>
+
+    <script>
+
+        // Get Subscribers
+        const youtubeUser4 = 'UCF9R3Ln-u52vUdSO-pFdETw';
+        const subCount4 = document.getElementById('subCount4');
+
+        let getSubscribers4 = () => {
+
+            fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${youtubeUser4}&key=${youtubeKey}`)
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data);
+                subCount4.innerHTML = data["items"][0].statistics.subscriberCount;
+            })
+
+        }
+
+        getSubscribers4();
+
+    </script>
+
+    <!--JacksEpicYoutubeChannelFullOfFunTimesAndFunHiRickX View Count-->
+
+    <b>JacksEpicYoutubeChannelFullOfFunTimesAndFunHiRickX View Count</b>
+    <div id="viewCount4"></div>
+
+    <script>
+
+        // Get Views
+        const viewCount4 = document.getElementById('viewCount4');
+
+        let getViews4 = () => {
+
+            fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${youtubeUser4}&key=${youtubeKey}`)
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data);
+                viewCount4.innerHTML = data["items"][0].statistics.viewCount;
+            })
+
+        }
+
+        getViews4();
+
+    </script>
+
+    <!--Don't Subscribe-->
+    <!--Don't Subscribe Sub Count-->
+
+    <h1>Don't Subscribe Channel Statistics</h1>
+    <b>Don't Subscribe Sub Count</b>
+    <div id="subCount5"></div>
+
+    <script>
+
+        // Get Subscribers
+        const youtubeUser5 = 'UC68DIXWCmetC8N5J_Kc5gjQ';
+        const subCount5 = document.getElementById('subCount5');
+
+        let getSubscribers5 = () => {
+
+            fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${youtubeUser5}&key=${youtubeKey}`)
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data);
+                subCount5.innerHTML = data["items"][0].statistics.subscriberCount;
+            })
+
+        }
+
+        getSubscribers5();
+
+    </script>
+
+    </div>
+
+</body>
+</html>
