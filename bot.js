@@ -3,11 +3,11 @@
 //dev stats will go here
 //trello board: https://trello.com/b/BnRrbl9Y/jsalstats
 //version:
-    //state: Early Alpha
-    //version number: V0.2
+    //state: stable
+    //version number: V1.0.1
     //version build number: 2 
     //build: 8
-    //changelog: Fixed Timing and Updating Issues
+    //changelog: Removed DSPercent, Fixed Time
 //created by:
     //Galvin: (Developer + PR Manager)
         //twitter:
@@ -53,7 +53,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:'Testing 24/7 Deployment\nNo Stats coming out for a while :('})
+    T.post('statuses/update', { status:'Version 1.0.1 (7/1/2021)\n-Removed Seconds From Time\n-Removed Dont Subscribe Progress as it was buggy\n\n(Thanks for 100 followers! :)'})
 }
 
 var JSALSubCount;
@@ -65,7 +65,6 @@ var JMWViewCount;
 var RickSubCount;
 var RickViewCount;
 var DSSubCount;
-var DSPercent;
 
 function loop(){
 
@@ -255,17 +254,15 @@ function loop(){
      
     controller.abort()
 
-    DSPercent = (DSSubCount / 1000000) * 100;
-
 }
 setInterval(loop, 1000*60*59)
 
 function sendTweet(){
     var today = new Date();
     var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear()
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:'Time: '+dateandtime+'\nJSAL:\nSub Count: '+JSALSubCount+'\nView Count: '+JSALViewCount+'\n\nJSAS :\nSub Count: '+JSASSubCount+'\nView count: '+JSASViewCount+'\n\nJMW:\nSub Count: '+JMWSubCount+'\nView Count: '+JMWViewCount+'\n\nJEYCFOFTAFHRX:\nSub Count: '+RickSubCount+'\nView Count: '+RickViewCount+'\n\nDont Subscribe Sub Count: '+DSSubCount+' ('+DSPercent+'%)'})
+    T.post('statuses/update', { status:'Time: '+dateandtime+'\nJSAL:\nSub Count: '+JSALSubCount+'\nView Count: '+JSALViewCount+'\n\nJSAS :\nSub Count: '+JSASSubCount+'\nView count: '+JSASViewCount+'\n\nJMW:\nSub Count: '+JMWSubCount+'\nView Count: '+JMWViewCount+'\n\nJEYCFOFTAFHRX:\nSub Count: '+RickSubCount+'\nView Count: '+RickViewCount+'\n\nDont Subscribe Sub Count: '+DSSubCount})
 }
 setInterval(sendTweet, 1000*60*60)
