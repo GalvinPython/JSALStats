@@ -263,6 +263,6 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:'Time: '+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nDont Subscribe Sub Count 🤍'+DSSubCount})
+    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nDont Subscribe Sub Count 🤍'+DSSubCount})
 }
 setInterval(sendTweet, 1000*60*60)
