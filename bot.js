@@ -53,7 +53,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:'Version 1.0.2 (8/1/2021)\n-Updated Formatting\nNo, time cannot be updated, but a new Time function is being released soon\n\nWe are starting to work on Sub and View increase. That will be added shortly 👀'})
+    T.post('statuses/update', { status:'Version 1.0.3 (11/1/2021)\n-Updated Formatting for Dont Subscribe (Thanks to Downhill for the suggestion)\n\nWe are aware the bot repeats the update tweet sometimes. That is a server problem'})
 }
 
 var JSALSubCount;
@@ -263,6 +263,6 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nDont Subscribe Sub Count 🤍'+DSSubCount})
+    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nDont Subscribe 🤍\nSub Count: '+DSSubCount})
 }
 setInterval(sendTweet, 1000*60*60)
