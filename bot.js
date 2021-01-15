@@ -51,7 +51,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:'Version 1.1 Pre-Release 1 (15/01/2021)\n-Subs now shown as they are on the Channel Page\n\nGlitches are expected'})
+    T.post('statuses/update', { status:'Version 1.1 Pre-Release 2 (15/01/2021)\n-Subs now shown as they are on the Channel Page\n-Fixed bug for last update ^\n\nGlitches are still expected'})
 }
 
 var JSALSubCount;
@@ -114,7 +114,7 @@ function loop(){
 
     JSALSubs();
 
-    JSALSubCountSimple = (JSALSubCount / 1000000)+"M";
+    JSALSubCountSimple = JSALSubCount / 1000000;
     console.log(JSALSubCountSimple);
 
 
@@ -150,13 +150,12 @@ function loop(){
         .then(data => {
             console.log(data);
             JSASSubCount = data["items"][0].statistics.subscriberCount;
-            console.log(JSASSubCount)
         })
     }
 
     JSASSubs();
 
-    JSASSubCountSimple = (JSASSubCount / 1000)+"K";
+    JSASSubCountSimple = JSASSubCount / 1000;
     console.log(JSASSubCountSimple);
 
     //JackSucksAtStuff View Count
@@ -170,7 +169,6 @@ function loop(){
         .then(data => {
             console.log(data);
             JSASViewCount = data["items"][0].statistics.viewCount;
-            console.log(JSASViewCount)
         })
     }
 
@@ -197,8 +195,7 @@ function loop(){
 
     JMWSubs();
 
-    JMWSubCountSimple = (JMWSubCount / 1000)+"K";
-    console.log(JMWSubCountSimple);
+    JMWSubCountSimple = JMWSubCount / 1000;
 
     //Jack Massey Welsh View Count
 
@@ -233,14 +230,12 @@ function loop(){
         .then(data => {
             console.log(data);
             RickSubCount = data["items"][0].statistics.subscriberCount;
-            console.log(RickSubCount)
         })
     }
 
     RickSubs();
 
-    RickSubCountSimple = (RickSubCount / 1000)+"K";
-    console.log(RickSubCountSimple);
+    RickSubCountSimple = RickSubCount / 1000;
 
     //JEYCFOFTAFHRX View Count
 
@@ -280,8 +275,7 @@ function loop(){
 
     DSSubs();
 
-    DSSubCountSimple = (DSSubCount / 1000)+"K";
-    console.log(DSSubCountSimple);
+    DSSubCountSimple = DSSubCount / 1000;
 
     signal.addEventListener("abort", () => {
         console.log("aborted!")
@@ -298,7 +292,7 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCountSimple+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCountSimple+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCountSimple+'\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCountSimple+'\nViews: '+RickViewCount+'\n\nDont Subscribe 🤍\nSub Count: '+DSSubCountSimple})
+    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCountSimple+'M\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCountSimple+'K\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCountSimple+'K\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCountSimple+'K\nViews: '+RickViewCount+'\n\nDont Subscribe 🤍\nSub Count: '+DSSubCountSimple+'K'})
 }
 
 setInterval(sendTweet, 1000*60*60)
