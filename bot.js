@@ -51,7 +51,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:'Version 1.1 Pre-Release 2 (15/01/2021)\n-Subs now shown as they are on the Channel Page\n-Fixed bug for last update ^\n\nGlitches are still expected'})
+    T.post('statuses/update', { status:'Rollback to previous version'})
 }
 
 var JSALSubCount;
@@ -114,7 +114,7 @@ function loop(){
 
     JSALSubs();
 
-    JSALSubCountSimple = JSALSubCount / 1000000;
+    JSALSubCountSimple = (JSALSubCount / 1000000);
     console.log(JSALSubCountSimple);
 
 
@@ -292,7 +292,7 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCountSimple+'M\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCountSimple+'K\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCountSimple+'K\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCountSimple+'K\nViews: '+RickViewCount+'\n\nDont Subscribe 🤍\nSub Count: '+DSSubCountSimple+'K'})
+    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nDont Subscribe 🤍\nSub Count: '+DSSubCount})
 }
 
 setInterval(sendTweet, 1000*60*60)
