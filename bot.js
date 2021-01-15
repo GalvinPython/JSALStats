@@ -1,14 +1,12 @@
-//informative stuff. Feel free to ignore
-//legal and how to use are included in a seperate .zip file
-//dev stats will go here
 //trello board: https://trello.com/b/BnRrbl9Y/jsalstats
 //version:
     //state: stable
-    //version number: V1.0.1
-    //version build number: 2 
-    //build: 8
-    //changelog: Removed DSPercent, Fixed Time
-//created by:
+    //version number: V1.1
+    //stable build number: 4
+    //build: 10
+    //changelog: M/K added in
+
+//Created by:
     //Galvin: (Developer + PR Manager)
         //twitter:
             //@egalvinyt
@@ -53,7 +51,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:'Version 1.0.3 (11/1/2021)\n-Updated Formatting for Dont Subscribe (Thanks to Downhill for the suggestion)\n\nWe are aware the bot repeats the update tweet sometimes. That is a server problem'})
+    T.post('statuses/update', { status:'Version 1.1 Pre-Release 1 (15/01/2021)\n-Subs now shown as they are on the Channel Page\n\nGlitches are expected'})
 }
 
 var JSALSubCount;
@@ -65,6 +63,12 @@ var JMWViewCount;
 var RickSubCount;
 var RickViewCount;
 var DSSubCount;
+
+var JSALSubCountSimple;
+var JSASSubCountSimple;
+var JMWSubCountSimple;
+var RickSubCountSimple;
+var DSSubCountSimple;
 
 function loop(){
 
@@ -78,6 +82,12 @@ function loop(){
     RickViewCount = '';
     DSSubCount = '';
 
+    JSALSubCountSimple = '';
+    JSASSubCountSimple = '';
+    JMWSubCountSimple = '';
+    RickSubCountSimple = '';
+    DSSubCountSimple = '';
+
     const fetch = require("node-fetch"); //required to fetch stuff from YouTube API
     const youtubeKey = 'AIzaSyCQth83qBb3BbJ9l-Lg5Lb4CYKG8_j33XU'; //YouTube access key 
 
@@ -85,7 +95,8 @@ function loop(){
     const signal = controller.signal
 
 
-    //JackSucksAtLife Code
+    /* JackSucksAtLife */
+
     //JackSucksAtLife Sub Count
     const JSAL = 'UCewMTclBJZPaNEfbf-qYMGA';
     let JSALSubs = () => {
@@ -97,11 +108,15 @@ function loop(){
         .then(data => {
             console.log(data);
             JSALSubCount = data["items"][0].statistics.subscriberCount;
-            console.log(JSALSubCount)
+            console.log(JSALSubCount);
         })
     }
 
     JSALSubs();
+
+    JSALSubCountSimple = (JSALSubCount / 1000000)+"M";
+    console.log(JSALSubCountSimple);
+
 
     //JackSucksAtLife View Count
 
@@ -120,7 +135,9 @@ function loop(){
 
     JSALViews();
 
-    //JackSucksAtStuff Code
+    
+    /* JackSucksAtStuff */
+
     //JackSucksAtStuff Sub Count
     const JSAS = 'UCxLIJccyaRQDeyu6RzUsPuw';
 
@@ -139,6 +156,9 @@ function loop(){
 
     JSASSubs();
 
+    JSASSubCountSimple = (JSASSubCount / 1000)+"K";
+    console.log(JSASSubCountSimple);
+
     //JackSucksAtStuff View Count
 
     let JSASViews = () => {
@@ -156,7 +176,9 @@ function loop(){
 
     JSASViews();
 
-    //Jack Massey Welsh Code
+
+    /* Jack Massey Welsh */
+
     //Jack Massey Welsh Sub Count
     const JMW = 'UCyktGLVQchOpvKgL7GShDWA';
 
@@ -174,6 +196,9 @@ function loop(){
     }
 
     JMWSubs();
+
+    JMWSubCountSimple = (JMWSubCount / 1000)+"K";
+    console.log(JMWSubCountSimple);
 
     //Jack Massey Welsh View Count
 
@@ -193,7 +218,9 @@ function loop(){
 
     JMWViews();
 
-    //JEYCFOFTAFHRX Code
+
+    /* JEYCFOFTAFHRX */
+    
     //JEYCFOFTAFHRX Sub Count
     const Rick = 'UCF9R3Ln-u52vUdSO-pFdETw';
 
@@ -212,7 +239,10 @@ function loop(){
 
     RickSubs();
 
-    //Jack Massey Welsh View Count
+    RickSubCountSimple = (RickSubCount / 1000)+"K";
+    console.log(RickSubCountSimple);
+
+    //JEYCFOFTAFHRX View Count
 
     let RickViews = () => {
 
@@ -230,7 +260,9 @@ function loop(){
 
     RickViews();
 
-    //Don't Subscribe Sub Count
+    
+    /* Don't Subscribe */
+
     const DS = 'UC68DIXWCmetC8N5J_Kc5gjQ';
 
     let DSSubs = () => {
@@ -248,6 +280,9 @@ function loop(){
 
     DSSubs();
 
+    DSSubCountSimple = (DSSubCount / 1000)+"K";
+    console.log(DSSubCountSimple);
+
     signal.addEventListener("abort", () => {
         console.log("aborted!")
     })
@@ -263,6 +298,7 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nDont Subscribe 🤍\nSub Count: '+DSSubCount})
+    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCountSimple+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCountSimple+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCountSimple+'\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCountSimple+'\nViews: '+RickViewCount+'\n\nDont Subscribe 🤍\nSub Count: '+DSSubCountSimple})
 }
+
 setInterval(sendTweet, 1000*60*60)
