@@ -51,7 +51,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:'Rollback to previous version'})
+    T.post('statuses/update', { status:'Version 1.1 Pre-Release 1 Update:\nhttps://www.reddit.com/r/JSALStats/comments/l163s5/released_version_11_prerelease_1_20th_january_2021/'})
 }
 
 var JSALSubCount;
@@ -292,7 +292,7 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nDont Subscribe 🤍\nSub Count: '+DSSubCount})
+    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+`\n\nDon't Subscribe 🤍\nSubs: `+DSSubCount+'/800,000'})
 }
 
 setInterval(sendTweet, 1000*60*60)
