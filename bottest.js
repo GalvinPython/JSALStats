@@ -1,20 +1,20 @@
 //trello board: https://trello.com/b/BnRrbl9Y/jsalstats
 //version:
-    //state: stable
-    //version number: V1.1
-    //stable build number: 4
-    //build: 10
-    //changelog: M/K added in
+//state: stable
+//version number: V1.1
+//stable build number: 4
+//build: 10
+//changelog: M/K added in
 
 //Created by:
-    //Galvin: (Developer + PR Manager)
-        //twitter:
-            //@egalvinyt
-            //@redblockyt
-            //@galvinplayz
-            //@galvinsucks
-    //Yodmin: (Manager + Founder)
-        //twitter: @yodmin_
+//Galvin: (Developer + PR Manager)
+//twitter:
+    //@egalvinyt
+    //@redblockyt
+    //@galvinplayz
+    //@galvinsucks
+//Yodmin: (Manager + Founder)
+//twitter: @yodmin_
 
 const { access } = require("fs")
 var Twit = require("twit")
@@ -23,10 +23,10 @@ const AbortController = require("abort-controller")
 //authentication
 //keys
 var T = new Twit({
-    consumer_key:'FX0jdpTsPIAYFtgCHECQUi5hT',
-    consumer_secret:'kawmXBdxwQp7bq9EjlMkqGrojwWa3EGjjewa11ZCOjL2FtvyWb',
-    access_token:'1333138071974522884-xBn8y8WIzIjMXS11yCoOnE88TzheCq',
-    access_token_secret:'GIqKD4D81fK5NlShs6fVgIUTjPTdjYbUe6UTHuCdexAY9'
+    consumer_key:'7kOWMRIHLmYIp2GO0quKg3Eth',
+    consumer_secret:'GhG1MjRaQyoaLJL5XCMOnxFMOYofbdsEbnXNI7gtoWzTVOSJhh',
+    access_token:'1078226118157762560-qDEzYOJwm0soxbzi1iA6JjGcjdI5rE',
+    access_token_secret:'3A35uJv8J6DcDcP0NLSDuEfxzFUT61hdjK82flzMwOluM'
 })
 
 //stuff required for authentication
@@ -51,49 +51,17 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:`Version 1.1 Pre-Release 2:\nJack's New Channel Is Now Tracked`})
+    T.post('statuses/update', { status:'JSALStats Testing'})
 }
 
-var JSALSubCount;
-var JSALViewCount;
-var JSASSubCount;
-var JSASViewCount;
-var JMWSubCount;
-var JMWViewCount;
-var RickSubCount;
-var RickViewCount;
-var DSSubCount;
+const fetch = require("node-fetch"); //required to fetch stuff from YouTube API
+const youtubeKey = 'AIzaSyCQth83qBb3BbJ9l-Lg5Lb4CYKG8_j33XU'; //YouTube access key 
 
-var JSALSubCountSimple;
-var JSASSubCountSimple;
-var JMWSubCountSimple;
-var RickSubCountSimple;
-var DSSubCountSimple;
+const controller = new AbortController()
+const signal = controller.signal
 
-function loop(){
-
-    JSALSubCount = '';
-    JSALViewCount = '';
-    JSASSubCount = '';
-    JSASViewCount = '';
-    JMWSubCount = '';
-    JMWViewCount = '';
-    RickSubCount = '';
-    RickViewCount = '';
-    DSSubCount = '';
-
-    JSALSubCountSimple = '';
-    JSASSubCountSimple = '';
-    JMWSubCountSimple = '';
-    RickSubCountSimple = '';
-    DSSubCountSimple = '';
-
-    const fetch = require("node-fetch"); //required to fetch stuff from YouTube API
-    const youtubeKey = 'AIzaSyCQth83qBb3BbJ9l-Lg5Lb4CYKG8_j33XU'; //YouTube access key 
-
-    const controller = new AbortController()
-    const signal = controller.signal
-
+function loop()
+{
 
     /* JackSucksAtLife */
 
@@ -114,10 +82,6 @@ function loop(){
 
     JSALSubs();
 
-    JSALSubCountSimple = (JSALSubCount / 1000000);
-    console.log(JSALSubCountSimple);
-
-
     //JackSucksAtLife View Count
 
     let JSALViews = () => {
@@ -135,7 +99,7 @@ function loop(){
 
     JSALViews();
 
-    
+
     /* JackSucksAtStuff */
 
     //JackSucksAtStuff Sub Count
@@ -154,9 +118,6 @@ function loop(){
     }
 
     JSASSubs();
-
-    JSASSubCountSimple = JSASSubCount / 1000;
-    console.log(JSASSubCountSimple);
 
     //JackSucksAtStuff View Count
 
@@ -195,8 +156,6 @@ function loop(){
 
     JMWSubs();
 
-    JMWSubCountSimple = JMWSubCount / 1000;
-
     //Jack Massey Welsh View Count
 
     let JMWViews = () => {
@@ -217,7 +176,7 @@ function loop(){
 
 
     /* JEYCFOFTAFHRX */
-    
+
     //JEYCFOFTAFHRX Sub Count
     const Rick = 'UCF9R3Ln-u52vUdSO-pFdETw';
 
@@ -234,8 +193,6 @@ function loop(){
     }
 
     RickSubs();
-
-    RickSubCountSimple = RickSubCount / 1000;
 
     //JEYCFOFTAFHRX View Count
 
@@ -256,44 +213,6 @@ function loop(){
     RickViews();
 
 
-    /* JackSucksAtClips */
-    
-    //JackSucksAtClips Sub Count
-    const JSAC = 'UCUXNOmIdsoyd5fh5TZHHO5Q';
-
-    let JSACSubs = () => {
-
-        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${JSAC}&key=${youtubeKey}`)
-        .then(response => {
-            return response.json()
-        })
-        .then(data => {
-            console.log(data);
-            JSACSubCount = data["items"][0].statistics.subscriberCount;
-        })
-    }
-
-    JSACSubs();
-
-    //JackSucksAtClips View Count
-
-    let JSACViews = () => {
-
-        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${JSAC}&key=${youtubeKey}`)
-        .then(response => {
-            return response.json()
-        })
-        .then(data => {
-            console.log(data);
-            JSACViewCount = data["items"][0].statistics.viewCount;
-            console.log(RickViewCount)
-        })
-
-    }
-
-    JSACViews();
-
-    
     /* Don't Subscribe */
 
     const DS = 'UC68DIXWCmetC8N5J_Kc5gjQ';
@@ -313,24 +232,20 @@ function loop(){
 
     DSSubs();
 
-    DSSubCountSimple = DSSubCount / 1000;
-
     signal.addEventListener("abort", () => {
         console.log("aborted!")
     })
-     
+        
     controller.abort()
 
-}
-setInterval(loop, 1000*60*59)
-
-function sendTweet(){
     var today = new Date();
     var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear()
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'JSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDon't Subscribe 🤍\nSubs: `+DSSubCount+'/800,000'})
+    var JSALSubCountComma = JSALSubCount.toLocaleString();
+
+    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCountComma+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+`\n\nDon't Subscribe 🤍\nSubs: `+DSSubCount+'/800,000'})
 }
 
-setInterval(sendTweet, 1000*60*60)
+setInterval(loop, 1000*15)
