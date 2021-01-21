@@ -51,7 +51,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:`Version 1.1 Pre-Release 2:\nJack's New Channel Is Now Tracked`})
+    T.post('statuses/update', { status:`Version 1.1 Pre-Release 3:\n\n-JSAC bug fixes\n-By demand, we're now tracking JackSucksAtGeography`})
 }
 
 var JSALSubCount;
@@ -216,6 +216,47 @@ function loop(){
     JMWViews();
 
 
+    /* JackSucksAtGeography */
+
+    //JSAG Sub Count
+    const JSAG = 'UCd15dSPPT-EhTXekA7_UNAQ';
+
+    let JSAGSubs = () => {
+
+        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${JSAG}&key=${youtubeKey}`)
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            console.log(data);
+            JSAGSubCount = data["items"][0].statistics.subscriberCount;
+            console.log(JSAGSubCount)
+        })
+    }
+
+    JSAGSubs();
+
+    JSAGSubCountSimple = JSAGSubCount / 1000;
+
+    //JSAG View Count
+
+    let JSAGViews = () => {
+
+        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${JMW}&key=${youtubeKey}`)
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            console.log(data);
+            JSAGViewCount = data["items"][0].statistics.viewCount;
+            console.log(JSAGViewCount)
+        })
+
+    }
+
+    JSAGViews();
+
+
     /* JEYCFOFTAFHRX */
     
     //JEYCFOFTAFHRX Sub Count
@@ -270,6 +311,7 @@ function loop(){
         .then(data => {
             console.log(data);
             JSACSubCount = data["items"][0].statistics.subscriberCount;
+            console.log(JSACSubCount)
         })
     }
 
@@ -286,7 +328,7 @@ function loop(){
         .then(data => {
             console.log(data);
             JSACViewCount = data["items"][0].statistics.viewCount;
-            console.log(RickViewCount)
+            console.log(JSACViewCount)
         })
 
     }
@@ -330,7 +372,7 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'JSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDon't Subscribe 🤍\nSubs: `+DSSubCount+'/800,000'})
+    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG 💚\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC 🖤\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDon't Subscribe 🤍\nSubs: `+DSSubCount})
 }
 
 setInterval(sendTweet, 1000*60*60)
