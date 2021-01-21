@@ -51,7 +51,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:`Version 1.1 Pre-Release 3:\n\n-JSAC bug fixes\n-By demand, we're now tracking JackSucksAtGeography`})
+    T.post('statuses/update', { status:`Version 1.1 Pre-Release 4:\n\nWe have removed Don't Subscribe from the tweets so we can do testing. We don't want to do this, but this is for testing purposes`})
 }
 
 var JSALSubCount;
@@ -64,12 +64,6 @@ var RickSubCount;
 var RickViewCount;
 var DSSubCount;
 
-var JSALSubCountSimple;
-var JSASSubCountSimple;
-var JMWSubCountSimple;
-var RickSubCountSimple;
-var DSSubCountSimple;
-
 function loop(){
 
     JSALSubCount = '';
@@ -78,15 +72,13 @@ function loop(){
     JSASViewCount = '';
     JMWSubCount = '';
     JMWViewCount = '';
+    JSAGSubCount = '';
+    JSAGViewCount = '';
     RickSubCount = '';
     RickViewCount = '';
+    JSACSubCount = '';
+    JSACViewCount = '';
     DSSubCount = '';
-
-    JSALSubCountSimple = '';
-    JSASSubCountSimple = '';
-    JMWSubCountSimple = '';
-    RickSubCountSimple = '';
-    DSSubCountSimple = '';
 
     const fetch = require("node-fetch"); //required to fetch stuff from YouTube API
     const youtubeKey = 'AIzaSyCQth83qBb3BbJ9l-Lg5Lb4CYKG8_j33XU'; //YouTube access key 
@@ -113,10 +105,6 @@ function loop(){
     }
 
     JSALSubs();
-
-    JSALSubCountSimple = (JSALSubCount / 1000000);
-    console.log(JSALSubCountSimple);
-
 
     //JackSucksAtLife View Count
 
@@ -155,8 +143,6 @@ function loop(){
 
     JSASSubs();
 
-    JSASSubCountSimple = JSASSubCount / 1000;
-    console.log(JSASSubCountSimple);
 
     //JackSucksAtStuff View Count
 
@@ -194,8 +180,6 @@ function loop(){
     }
 
     JMWSubs();
-
-    JMWSubCountSimple = JMWSubCount / 1000;
 
     //Jack Massey Welsh View Count
 
@@ -236,13 +220,11 @@ function loop(){
 
     JSAGSubs();
 
-    JSAGSubCountSimple = JSAGSubCount / 1000;
-
     //JSAG View Count
 
     let JSAGViews = () => {
 
-        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${JMW}&key=${youtubeKey}`)
+        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${JSAG}&key=${youtubeKey}`)
         .then(response => {
             return response.json()
         })
@@ -275,8 +257,6 @@ function loop(){
     }
 
     RickSubs();
-
-    RickSubCountSimple = RickSubCount / 1000;
 
     //JEYCFOFTAFHRX View Count
 
@@ -335,27 +315,6 @@ function loop(){
 
     JSACViews();
 
-    
-    /* Don't Subscribe */
-
-    const DS = 'UC68DIXWCmetC8N5J_Kc5gjQ';
-
-    let DSSubs = () => {
-
-        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${DS}&key=${youtubeKey}`)
-        .then(response => {
-            return response.json()
-        })
-        .then(data => {
-            console.log(data);
-            DSSubCount = data["items"][0].statistics.subscriberCount;
-            console.log(DSSubCount)
-        })
-    }
-
-    DSSubs();
-
-    DSSubCountSimple = DSSubCount / 1000;
 
     signal.addEventListener("abort", () => {
         console.log("aborted!")
@@ -372,7 +331,7 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG 💚\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC 🖤\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDon't Subscribe 🤍\nSubs: `+DSSubCount})
+    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG 💚\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC 🤍\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount})
 }
 
 setInterval(sendTweet, 1000*60*60)
