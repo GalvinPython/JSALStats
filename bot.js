@@ -1,20 +1,4 @@
-//trello board: https://trello.com/b/BnRrbl9Y/jsalstats
-//version:
-    //state: stable
-    //version number: V1.1
-    //stable build number: 4
-    //build: 10
-    //changelog: M/K added in
-
-//Created by:
-    //Galvin: (Developer + PR Manager)
-        //twitter:
-            //@egalvinyt
-            //@redblockyt
-            //@galvinplayz
-            //@galvinsucks
-    //Yodmin: (Manager + Founder)
-        //twitter: @yodmin_
+/*A Twitter Bot For JackMasseyWelsh's YouTube Statistics*/
 
 const { access } = require("fs")
 var Twit = require("twit")
@@ -51,7 +35,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:`Version 1.1 Pre-Release 4:\n\nWe have removed Don't Subscribe from the tweets so we can do testing. We don't want to do this, but this is for testing purposes`})
+    T.post('statuses/update', { status:`Version 1.1 Pre-Release 5:\n\n-Reverted to old format (no hearts) to allow for Don't Subscribe\n-JEYCFOFTAFHRX is now HiRickX\n-Don't Subscribe now has description for next 100K goal`})
 }
 
 var JSALSubCount;
@@ -60,8 +44,12 @@ var JSASSubCount;
 var JSASViewCount;
 var JMWSubCount;
 var JMWViewCount;
+var JSAGSubCount;
+var JSAGViewCount;
 var RickSubCount;
 var RickViewCount;
+var JSACSubCount 
+var JSACViewCount;
 var DSSubCount;
 
 function loop(){
@@ -316,6 +304,28 @@ function loop(){
     JSACViews();
 
 
+    /* Don't Subscribe*/
+
+    //DS Sub Count
+
+    const DS = 'UC68DIXWCmetC8N5J_Kc5gjQ';
+
+    let DSSubs = () => {
+
+        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${DS}&key=${youtubeKey}`)
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            console.log(data);
+            DSSubCount = data["items"][0].statistics.subscriberCount;
+            console.log(DSSubCount)
+        })
+    }
+
+    DSSubs();
+
+
     signal.addEventListener("abort", () => {
         console.log("aborted!")
     })
@@ -331,7 +341,7 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:''+dateandtime+'\nJSAL ❤️\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS 💛\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW 💙\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG 💚\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nJEYCFOFTAFHRX 💜\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC 🤍\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount})
+    T.post('statuses/update', { status:''+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nJEYCFOFTAFHRX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDon't Subscribe:\nSubs: `+DSSubCount+'\n800K: Advertise Channe;'})
 }
 
 setInterval(sendTweet, 1000*60*60)
