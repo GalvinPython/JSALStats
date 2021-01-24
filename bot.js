@@ -35,7 +35,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:`Version 1.1 Pre-Release 5:\n\n-Reverted to old format (no hearts) to allow for Don't Subscribe\n-JEYCFOFTAFHRX is now HiRickX\n-Don't Subscribe now has description for next 100K goal`})
+    T.post('statuses/update', { status:`Version 1.1 Pre-Release 6:\n\n-Removed the description of the next Don't Subscribe Sub Goal as it was causing problems with the bot`})
 }
 
 var JSALSubCount;
@@ -341,7 +341,7 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:''+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nJEYCFOFTAFHRX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDon't Subscribe:\nSubs: `+DSSubCount+'\n800K: Advertise Channel'})
+    T.post('statuses/update', { status:''+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nJEYCFOFTAFHRX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDon't Subscribe:\nSubs: `+DSSubCount+'/800K'})
 }
 
 setInterval(sendTweet, 1000*60*60)
