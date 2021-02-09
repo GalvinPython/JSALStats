@@ -35,7 +35,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:`Restart\nVersion 2.0:\n\n-Stats updates now occur every 6 hours, but we're still tracking stats every few minutes behind the scenes\n\nThis is part of the new "rebrand" we're doing. Stay tuned! :)`})
+    T.post('statuses/update', { status:`Server Restart!\nVersion 2.0:\n\n-Stats updates now occur every 6 hours, but we're still tracking stats every few minutes behind the scenes\n\nThis is part of the new "rebrand" we're doing. Stay tuned! :)`})
 }
 
 var JSALSubCount;
