@@ -35,7 +35,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:`Version 1.1 Pre-Release 6:\n\n-Removed the description of the next Don't Subscribe Sub Goal as it was causing problems with the bot`})
+    T.post('statuses/update', { status:`Restart\nVersion 2.0:\n\n-Stats updates now occur every 6 hours, but we're still tracking stats every few minutes behind the scenes\n\nThis is part of the new "rebrand" we're doing. Stay tuned! :)`})
 }
 
 var JSALSubCount;
@@ -333,7 +333,7 @@ function loop(){
     controller.abort()
 
 }
-setInterval(loop, 1000*60*59)
+setInterval(loop, 1000*60*60*5.95)
 
 function sendTweet(){
     var today = new Date();
@@ -341,7 +341,7 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:''+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nJEYCFOFTAFHRX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDon't Subscribe:\nSubs: `+DSSubCount+'/800K'})
+    T.post('statuses/update', { status:'📈'+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nJEYCFOFTAFHRX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDon't Subscribe:\nSubs: `+DSSubCount})
 }
 
-setInterval(sendTweet, 1000*60*60)
+setInterval(sendTweet, 1000*60*60*6)
