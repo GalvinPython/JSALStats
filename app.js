@@ -75,7 +75,6 @@ function loop(){
     const controller = new AbortController()
     const signal = controller.signal
 
-
     /* JackSucksAtLife */
 
     //JackSucksAtLife Sub Count
