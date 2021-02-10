@@ -2,7 +2,7 @@
   "name": "jsalstats",
   "version": "2.0.0",
   "description": "Twitter Bot",
-  "main": "bot_test.js",
+  "main": "bot.js",
   "dependencies": {
     "abort-controller": "^3.0.0",
     "node-abort-controller": "^1.1.0",
