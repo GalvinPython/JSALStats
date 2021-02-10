@@ -3,6 +3,7 @@
 const { access } = require("fs")
 var Twit = require("twit")
 const AbortController = require("abort-controller")
+var numeral = require('numeral');
 
 //authentication
 //keys
@@ -35,7 +36,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:`Server Restart!\nVersion 2.0:\n\n-Stats updates now occur every 6 hours, but we're still tracking stats every few minutes behind the scenes\n\nThis is part of the new "rebrand" we're doing. Stay tuned! :)`})
+    T.post('statuses/update', { status:`Server Restart!\nVersion 2.1:\n\n-Testing something new with the API\n\nDidn't I say I'd do this last month?`})
 }
 
 var JSALSubCount;
@@ -87,7 +88,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSALSubCount = data["items"][0].statistics.subscriberCount;
+            JSALSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0,0');
             console.log(JSALSubCount);
         })
     }
