@@ -36,7 +36,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:`Server Restart!\nVersion 2.1:\n\n-Testing something new with the API\n\nDidn't I say I'd do this last month?`})
+    T.post('statuses/update', { status:`Server Restart!\nVersion 2.1:\n\n-Testing something new with the API\n\nDidn't I say I'd do this last month?\nNote: We've been having problems recently because I accidently duplicated the bot`})
 }
 
 var JSALSubCount;
