@@ -36,7 +36,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:`Server Restart!\nVersion 2.1:\n\n-Testing something new with the API\n\nDidn't I say I'd do this last month?\nNote: We've been having problems recently because I accidently duplicated the bot`})
+    T.post('statuses/update', { status:`Version 2.2:\n\n-Commas Fully Added\n-Channel Names changed to keep within character limit\n-Readded Don't Subscribe Goal`})
 }
 
 var JSALSubCount;
@@ -104,7 +104,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSALViewCount = data["items"][0].statistics.viewCount;
+            JSALViewCount = numeral(data["items"][0].statistics.viewCount).format('0,0');
             console.log(JSALViewCount)
         })
     }
@@ -125,7 +125,8 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSASSubCount = data["items"][0].statistics.subscriberCount;
+            JSASSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0,0');
+            console.log(JSASSubCount)
         })
     }
 
@@ -142,7 +143,8 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSASViewCount = data["items"][0].statistics.viewCount;
+            JSASViewCount = numeral(data["items"][0].statistics.viewCount).format('0,0');
+            console.log(JSASViewCount)
         })
     }
 
@@ -162,7 +164,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JMWSubCount = data["items"][0].statistics.subscriberCount;
+            JMWSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0,0');
             console.log(JMWSubCount)
         })
     }
@@ -179,7 +181,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JMWViewCount = data["items"][0].statistics.viewCount;
+            JMWViewCount = numeral(data["items"][0].statistics.viewCount).format('0,0');
             console.log(JMWViewCount)
         })
 
@@ -201,7 +203,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSAGSubCount = data["items"][0].statistics.subscriberCount;
+            JSAGSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0,0');
             console.log(JSAGSubCount)
         })
     }
@@ -218,7 +220,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSAGViewCount = data["items"][0].statistics.viewCount;
+            JSAGViewCount = numeral(data["items"][0].statistics.viewCount).format('0,0');
             console.log(JSAGViewCount)
         })
 
@@ -240,7 +242,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            RickSubCount = data["items"][0].statistics.subscriberCount;
+            RickSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0,0');
         })
     }
 
@@ -256,7 +258,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            RickViewCount = data["items"][0].statistics.viewCount;
+            RickViewCount = numeral(data["items"][0].statistics.viewCount).format('0,0');
             console.log(RickViewCount)
         })
 
@@ -278,7 +280,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSACSubCount = data["items"][0].statistics.subscriberCount;
+            JSACSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0,0');
             console.log(JSACSubCount)
         })
     }
@@ -295,7 +297,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSACViewCount = data["items"][0].statistics.viewCount;
+            JSACViewCount = numeral(data["items"][0].statistics.viewCount).format('0,0');
             console.log(JSACViewCount)
         })
 
@@ -318,7 +320,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            DSSubCount = data["items"][0].statistics.subscriberCount;
+            DSSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0,0');
             console.log(DSSubCount)
         })
     }
@@ -341,7 +343,7 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:'📈'+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nJEYCFOFTAFHRX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDon't Subscribe:\nSubs: `+DSSubCount})
+    T.post('statuses/update', { status:'🕒'+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nHiRickX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDS: `+DSSubCount+'/1M'})
 }
 
 setInterval(sendTweet, 1000*60*60*6)
