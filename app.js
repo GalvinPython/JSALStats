@@ -36,7 +36,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:`Version 2.2:\n\n-Commas Fully Added\n-Channel Names changed to keep within character limit\n-Readded Don't Subscribe Goal`})
+    T.post('statuses/update', { status:'Version 2.3 (1/3/21):\n\n-Subs and Views counts should be replaced with M or K instead of zeros'})
 }
 
 var JSALSubCount;
@@ -87,7 +87,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSALSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0,0');
+            JSALSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0.0a');
             console.log(JSALSubCount);
         })
     }
@@ -104,7 +104,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSALViewCount = numeral(data["items"][0].statistics.viewCount).format('0,0');
+            JSALViewCount = numeral(data["items"][0].statistics.viewCount).format('0.0a');
             console.log(JSALViewCount)
         })
     }
@@ -143,7 +143,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSASViewCount = numeral(data["items"][0].statistics.viewCount).format('0,0');
+            JSASViewCount = numeral(data["items"][0].statistics.viewCount).format('0.0a');
             console.log(JSASViewCount)
         })
     }
@@ -181,7 +181,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JMWViewCount = numeral(data["items"][0].statistics.viewCount).format('0,0');
+            JMWViewCount = numeral(data["items"][0].statistics.viewCount).format('0.0a');
             console.log(JMWViewCount)
         })
 
@@ -220,7 +220,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSAGViewCount = numeral(data["items"][0].statistics.viewCount).format('0,0');
+            JSAGViewCount = numeral(data["items"][0].statistics.viewCount).format('0.0a');
             console.log(JSAGViewCount)
         })
 
@@ -258,7 +258,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            RickViewCount = numeral(data["items"][0].statistics.viewCount).format('0,0');
+            RickViewCount = numeral(data["items"][0].statistics.viewCount).format('0.0a');
             console.log(RickViewCount)
         })
 
@@ -297,7 +297,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSACViewCount = numeral(data["items"][0].statistics.viewCount).format('0,0');
+            JSACViewCount = numeral(data["items"][0].statistics.viewCount).format('0.0a');
             console.log(JSACViewCount)
         })
 
