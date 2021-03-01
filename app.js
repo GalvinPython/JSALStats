@@ -125,7 +125,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSASSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0,0');
+            JSASSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0 a');
             console.log(JSASSubCount)
         })
     }
@@ -164,7 +164,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JMWSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0,0');
+            JMWSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0 a');
             console.log(JMWSubCount)
         })
     }
@@ -203,7 +203,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSAGSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0,0');
+            JSAGSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0 a');
             console.log(JSAGSubCount)
         })
     }
@@ -242,7 +242,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            RickSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0,0');
+            RickSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0 a');
         })
     }
 
@@ -280,7 +280,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            JSACSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0,0');
+            JSACSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0 a');
             console.log(JSACSubCount)
         })
     }
@@ -320,7 +320,7 @@ function loop(){
         })
         .then(data => {
             console.log(data);
-            DSSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0,0');
+            DSSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0 a');
             console.log(DSSubCount)
         })
     }
