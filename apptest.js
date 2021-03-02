@@ -8,10 +8,10 @@ var numeral = require('numeral');
 //authentication
 //keys
 var T = new Twit({
-    consumer_key:'FX0jdpTsPIAYFtgCHECQUi5hT',
-    consumer_secret:'kawmXBdxwQp7bq9EjlMkqGrojwWa3EGjjewa11ZCOjL2FtvyWb',
-    access_token:'1333138071974522884-xBn8y8WIzIjMXS11yCoOnE88TzheCq',
-    access_token_secret:'GIqKD4D81fK5NlShs6fVgIUTjPTdjYbUe6UTHuCdexAY9'
+    consumer_key:'73UCAWBRICfDrSPEYCImAoi3R',
+    consumer_secret:'Lh9fQMToGFuyPrUjFTOLnWlQ9T8LEsG4YSkxk3kkfMuu5lHZZ6',
+    access_token:'1078226118157762560-7oCBu1uyb3vIsvbNoqtTZdPw73MVk5',
+    access_token_secret:'e7x1nMlJCy9mWhqihTT7ru3Ib4xeADKI7JnNLz6B3vfZW'
 })
 
 //stuff required for authentication
@@ -36,7 +36,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:'Bot Restarted\nVersion 2.4.2'})
+    T.post('statuses/update', { status:'Testing some stuff'})
 }
 
 var JSALSubCount;
@@ -52,9 +52,6 @@ var RickViewCount;
 var JSACSubCount 
 var JSACViewCount;
 var DSSubCount;
-
-var JSALSubCountChange;
-var JSALSubCountNew = 0;
 
 function loop(){
 
@@ -92,9 +89,6 @@ function loop(){
             console.log(data);
             JSALSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0.0a');
             console.log(JSALSubCount);
-
-            JSALSubCountChange = JSALSubCountNew - JSALSubCount
-            JSALSubCountNew = JSALSubCount
         })
     }
 
@@ -349,7 +343,7 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:'🕒 '+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+' (+'+JSALSubCountChange+')\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nHiRickX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDS: `+DSSubCount+'/1M'})
+    T.post('statuses/update', { status:'🕒 '+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nHiRickX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDS: `+DSSubCount+'/1M'})
 }
 
-setInterval(sendTweet, 1000*60*60*6)
+setInterval(sendTweet, 1000*20)
