@@ -36,7 +36,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:'Bot Restarted\nVersion 2.4.2'})
+    T.post('statuses/update', { status:'Bot Restarted\nVersion 2.4.3'})
 }
 
 var JSALSubCount;
@@ -52,9 +52,6 @@ var RickViewCount;
 var JSACSubCount 
 var JSACViewCount;
 var DSSubCount;
-
-var JSALSubCountChange;
-var JSALSubCountNew = 0;
 
 function loop(){
 
@@ -91,10 +88,8 @@ function loop(){
         .then(data => {
             console.log(data);
             JSALSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0.0a');
-            console.log(JSALSubCount);
-
-            JSALSubCountChange = JSALSubCountNew - JSALSubCount
-            JSALSubCountNew = JSALSubCount
+            JSALSubCountB = data["items"][0].statistics.subscriberCount
+            console.log(JSALSubCountB);
         })
     }
 
@@ -111,7 +106,8 @@ function loop(){
         .then(data => {
             console.log(data);
             JSALViewCount = numeral(data["items"][0].statistics.viewCount).format('0.0a');
-            console.log(JSALViewCount)
+            JSALViewCountB = data["items"][0].statistics.viewCount
+            console.log(JSALViewCountB);
         })
     }
 
@@ -132,7 +128,8 @@ function loop(){
         .then(data => {
             console.log(data);
             JSASSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0a');
-            console.log(JSASSubCount)
+            JSASSubCountB = data["items"][0].statistics.subscriberCount
+            console.log(JSASSubCountB);
         })
     }
 
@@ -150,7 +147,8 @@ function loop(){
         .then(data => {
             console.log(data);
             JSASViewCount = numeral(data["items"][0].statistics.viewCount).format('0.0a');
-            console.log(JSASViewCount)
+            JSASViewCountB = data["items"][0].statistics.viewCount
+            console.log(JSASViewCountB);
         })
     }
 
@@ -171,7 +169,8 @@ function loop(){
         .then(data => {
             console.log(data);
             JMWSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0a');
-            console.log(JMWSubCount)
+            JMWSubCountB = data["items"][0].statistics.subscriberCount
+            console.log(JMWSubCountB);
         })
     }
 
@@ -188,7 +187,8 @@ function loop(){
         .then(data => {
             console.log(data);
             JMWViewCount = numeral(data["items"][0].statistics.viewCount).format('0.0a');
-            console.log(JMWViewCount)
+            JMWViewCountB = data["items"][0].statistics.viewCount
+            console.log(JMWViewCountB);
         })
 
     }
@@ -210,7 +210,8 @@ function loop(){
         .then(data => {
             console.log(data);
             JSAGSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0a');
-            console.log(JSAGSubCount)
+            JSAGSubCountB = data["items"][0].statistics.subscriberCount
+            console.log(JSAGSubCountB);
         })
     }
 
@@ -227,7 +228,8 @@ function loop(){
         .then(data => {
             console.log(data);
             JSAGViewCount = numeral(data["items"][0].statistics.viewCount).format('0.0a');
-            console.log(JSAGViewCount)
+            JSAGViewCountB = data["items"][0].statistics.viewCount
+            console.log(JSAGViewCountB);
         })
 
     }
@@ -249,6 +251,8 @@ function loop(){
         .then(data => {
             console.log(data);
             RickSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0a');
+            RickSubCountB = data["items"][0].statistics.subscriberCount
+            console.log(RickSubCountB);
         })
     }
 
@@ -265,7 +269,8 @@ function loop(){
         .then(data => {
             console.log(data);
             RickViewCount = numeral(data["items"][0].statistics.viewCount).format('0.0a');
-            console.log(RickViewCount)
+            RickViewCountB = data["items"][0].statistics.viewCount
+            console.log(RickViewCountB);
         })
 
     }
@@ -287,7 +292,8 @@ function loop(){
         .then(data => {
             console.log(data);
             JSACSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0a');
-            console.log(JSACSubCount)
+            JSACSubCountB = data["items"][0].statistics.subscriberCount
+            console.log(JSACSubCountB);
         })
     }
 
@@ -304,7 +310,8 @@ function loop(){
         .then(data => {
             console.log(data);
             JSACViewCount = numeral(data["items"][0].statistics.viewCount).format('0.0a');
-            console.log(JSACViewCount)
+            JSACViewCountB = data["items"][0].statistics.viewCount
+            console.log(JSACViewCountB);
         })
 
     }
@@ -327,7 +334,8 @@ function loop(){
         .then(data => {
             console.log(data);
             DSSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0a');
-            console.log(DSSubCount)
+            DSSubCountB = data["items"][0].statistics.subscriberCount
+            console.log(DSSubCountB);
         })
     }
 
@@ -349,7 +357,7 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:'🕒 '+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+' (+'+JSALSubCountChange+')\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nHiRickX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDS: `+DSSubCount+'/1M'})
+    T.post('statuses/update', { status:'🕒 '+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nHiRickX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDS: `+DSSubCount+'/1M'})
 }
 
 setInterval(sendTweet, 1000*60*60*6)
