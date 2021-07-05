@@ -1,4 +1,10 @@
-/*A Twitter Bot For Jack Massey Welsh's YouTube Statistics*/
+//A Twitter Bot For Jack Massey Welsh's YouTube Statistics
+/* Version Control:
+    Version: 2.5 BETA 1
+    Date: Monday 5th July 2021
+    Changelog: JackSucksAtLife channel is now using Estimation System for its subscriber count
+    Comment: This 'version control' thing sucks - Galvin
+*/
 
 const { access } = require("fs")
 var Twit = require("twit")
@@ -81,15 +87,14 @@ function loop(){
     const JSAL = 'UCewMTclBJZPaNEfbf-qYMGA';
     let JSALSubs = () => {
 
-        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${JSAL}&key=${youtubeKey}`)
+        fetch(`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/UCewMTclBJZPaNEfbf-qYMGA`)
         .then(response => {
             return response.json()
         })
         .then(data => {
             console.log(data);
-            JSALSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0.0a');
-            JSALSubCountB = data["items"][0].statistics.subscriberCount
-            console.log(JSALSubCountB);
+            JSALSubCount = numeral(data.userList[0].stats.subscriberCount).format('0,0');
+            console.log(JSALSubCount)
         })
     }
 
@@ -357,7 +362,7 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:'🕒 '+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nHiRickX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDS: `+DSSubCount+'/1M'})
+    T.post('statuses/update', { status:'🕒 '+dateandtime+'\n\nJSAL:\nSubs*: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nHiRickX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDS: `+DSSubCount+'/1,000,000\n* = Estimated'})
 }
 
 setInterval(sendTweet, 1000*60*60*6)
