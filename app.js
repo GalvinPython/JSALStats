@@ -42,7 +42,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    T.post('statuses/update', { status:'Bot Restarted\nVersion 2.4.3'})
+    console.log("Bot Restarted: Version 2.5.2")
 }
 
 var JSALSubCount;
@@ -84,7 +84,7 @@ function loop(){
     /* JackSucksAtLife */
 
     //JackSucksAtLife Sub Count
-    const JSAL = 'UCewMTclBJZPaNEfbf-qYMGA';
+    const JSAS = 'UCewMTclBJZPaNEfbf-qYMGA';
     let JSALSubs = () => {
 
         fetch(`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/UCewMTclBJZPaNEfbf-qYMGA`)
@@ -123,18 +123,16 @@ function loop(){
 
     //JackSucksAtStuff Sub Count
     const JSAS = 'UCxLIJccyaRQDeyu6RzUsPuw';
-
     let JSASSubs = () => {
 
-        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${JSAS}&key=${youtubeKey}`)
+        fetch(`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/UCxLIJccyaRQDeyu6RzUsPuw`)
         .then(response => {
             return response.json()
         })
         .then(data => {
             console.log(data);
-            JSASSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0a');
-            JSASSubCountB = data["items"][0].statistics.subscriberCount
-            console.log(JSASSubCountB);
+            JSASSubCount = numeral(data.userList[0].stats.subscriberCount).format('0,0');
+            console.log(JSASSubCount)
         })
     }
 
@@ -167,15 +165,14 @@ function loop(){
 
     let JMWSubs = () => {
 
-        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${JMW}&key=${youtubeKey}`)
+        fetch(`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/UCyktGLVQchOpvKgL7GShDWA`)
         .then(response => {
             return response.json()
         })
         .then(data => {
             console.log(data);
-            JMWSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0a');
-            JMWSubCountB = data["items"][0].statistics.subscriberCount
-            console.log(JMWSubCountB);
+            JMWSubCount = numeral(data.userList[0].stats.subscriberCount).format('0,0');
+            console.log(JMWSubCount)
         })
     }
 
@@ -208,15 +205,14 @@ function loop(){
 
     let JSAGSubs = () => {
 
-        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${JSAG}&key=${youtubeKey}`)
+        fetch(`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/UCd15dSPPT-EhTXekA7_UNAQ`)
         .then(response => {
             return response.json()
         })
         .then(data => {
             console.log(data);
-            JSAGSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0a');
-            JSAGSubCountB = data["items"][0].statistics.subscriberCount
-            console.log(JSAGSubCountB);
+            JSAGSubCount = numeral(data.userList[0].stats.subscriberCount).format('0,0');
+            console.log(JSAGSubCount)
         })
     }
 
@@ -249,15 +245,14 @@ function loop(){
 
     let RickSubs = () => {
 
-        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${Rick}&key=${youtubeKey}`)
+        fetch(`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/UCF9R3Ln-u52vUdSO-pFdETw`)
         .then(response => {
             return response.json()
         })
         .then(data => {
             console.log(data);
-            RickSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0a');
-            RickSubCountB = data["items"][0].statistics.subscriberCount
-            console.log(RickSubCountB);
+            RickSubCount = numeral(data.userList[0].stats.subscriberCount).format('0,0');
+            console.log(RickSubCount)
         })
     }
 
@@ -290,15 +285,14 @@ function loop(){
 
     let JSACSubs = () => {
 
-        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${JSAC}&key=${youtubeKey}`)
+        fetch(`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/UCUXNOmIdsoyd5fh5TZHHO5Q`)
         .then(response => {
             return response.json()
         })
         .then(data => {
             console.log(data);
-            JSACSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0a');
-            JSACSubCountB = data["items"][0].statistics.subscriberCount
-            console.log(JSACSubCountB);
+            JSACSubCount = numeral(data.userList[0].stats.subscriberCount).format('0,0');
+            console.log(JSACSubCount)
         })
     }
 
@@ -332,15 +326,14 @@ function loop(){
 
     let DSSubs = () => {
 
-        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${DS}&key=${youtubeKey}`)
+        fetch(`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/UC68DIXWCmetC8N5J_Kc5gjQ`)
         .then(response => {
             return response.json()
         })
         .then(data => {
             console.log(data);
-            DSSubCount = numeral(data["items"][0].statistics.subscriberCount).format('0a');
-            DSSubCountB = data["items"][0].statistics.subscriberCount
-            console.log(DSSubCountB);
+            DSSubCount = numeral(data.userList[0].stats.subscriberCount).format('0,0');
+            console.log(JSACSubCount)
         })
     }
 
@@ -362,7 +355,7 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:'🕒 '+dateandtime+'\n\nJSAL:\nSubs*: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nHiRickX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDS: `+DSSubCount+'/1,000,000\n* = Estimated'})
+    T.post('statuses/update', { status:'🕒 '+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nHiRickX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDS: `+DSSubCount+'\nSubs estimated'})
 }
 
 setInterval(sendTweet, 1000*60*60*6)
