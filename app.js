@@ -1,8 +1,8 @@
 //A Twitter Bot For Jack Massey Welsh's YouTube Statistics
 /* Version Control:
-    Version: 2.5 BETA 1
-    Date: Monday 5th July 2021
-    Changelog: JackSucksAtLife channel is now using Estimation System for its subscriber count
+    Version: 2.5 BETA 2
+    Date: Wednesday 7th July 2021
+    Changelog: Fixed 'JSAL' const. Mixed with JSAS's Channel ID
     Comment: This 'version control' thing sucks - Galvin
 */
 
@@ -84,7 +84,7 @@ function loop(){
     /* JackSucksAtLife */
 
     //JackSucksAtLife Sub Count
-    const JSAS = 'UCewMTclBJZPaNEfbf-qYMGA';
+    const JSAL = 'UCewMTclBJZPaNEfbf-qYMGA';
     let JSALSubs = () => {
 
         fetch(`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/UCewMTclBJZPaNEfbf-qYMGA`)
