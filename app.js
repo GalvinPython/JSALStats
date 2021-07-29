@@ -1,5 +1,5 @@
 //A Twitter Bot For Jack Massey Welsh's YouTube Statistics
-/* Version Control:
+/* Useless version information:
     Version: 2.5 BETA 2
     Date: Wednesday 7th July 2021
     Changelog: Fixed 'JSAL' const. Mixed with JSAS's Channel ID
@@ -42,7 +42,7 @@ function onAuthenticated(err){
 
 //message to be sent that auth worked
 function sendAuthMSG(){
-    console.log("Bot Restarted: Version 2.5.2")
+    console.log("Bot Restarted: Version 2.5.3. Should be working :)")
 }
 
 var JSALSubCount;
@@ -58,6 +58,8 @@ var RickViewCount;
 var JSACSubCount 
 var JSACViewCount;
 var DSSubCount;
+var longChannelSubscriberCount;
+var longChannelViewCount;
 
 function loop(){
 
@@ -74,6 +76,8 @@ function loop(){
     JSACSubCount = '';
     JSACViewCount = '';
     DSSubCount = '';
+    longChannelSubscriberCount = '';
+    longChannelViewCount = '';
 
     const fetch = require("node-fetch"); //required to fetch stuff from YouTube API
     const youtubeKey = 'AIzaSyCQth83qBb3BbJ9l-Lg5Lb4CYKG8_j33XU'; //YouTube access key 
@@ -81,7 +85,7 @@ function loop(){
     const controller = new AbortController()
     const signal = controller.signal
 
-    /* JackSucksAtLife */
+    /* JackSucksAtLife
 
     //JackSucksAtLife Sub Count
     const JSAL = 'UCewMTclBJZPaNEfbf-qYMGA';
@@ -119,7 +123,7 @@ function loop(){
     JSALViews();
 
     
-    /* JackSucksAtStuff */
+    /* JackSucksAtStuff
 
     //JackSucksAtStuff Sub Count
     const JSAS = 'UCxLIJccyaRQDeyu6RzUsPuw';
@@ -158,7 +162,7 @@ function loop(){
     JSASViews();
 
 
-    /* Jack Massey Welsh */
+    /* Jack Massey Welsh
 
     //Jack Massey Welsh Sub Count
     const JMW = 'UCyktGLVQchOpvKgL7GShDWA';
@@ -198,7 +202,7 @@ function loop(){
     JMWViews();
 
 
-    /* JackSucksAtGeography */
+    /* JackSucksAtGeography
 
     //JSAG Sub Count
     const JSAG = 'UCd15dSPPT-EhTXekA7_UNAQ';
@@ -238,7 +242,7 @@ function loop(){
     JSAGViews();
 
 
-    /* JEYCFOFTAFHRX */
+    /* JEYCFOFTAFHRX
     
     //JEYCFOFTAFHRX Sub Count
     const Rick = 'UCF9R3Ln-u52vUdSO-pFdETw';
@@ -278,7 +282,7 @@ function loop(){
     RickViews();
 
 
-    /* JackSucksAtClips */
+    /* JackSucksAtClips
     
     //JackSucksAtClips Sub Count
     const JSAC = 'UCUXNOmIdsoyd5fh5TZHHO5Q';
@@ -318,7 +322,7 @@ function loop(){
     JSACViews();
 
 
-    /* Don't Subscribe */
+    /* Don't Subscribe
 
     //DS Sub Count
 
@@ -339,6 +343,44 @@ function loop(){
 
     DSSubs();
 
+    */
+
+    // Stupidly Long Name Channel
+
+    const longChannel = "UChLNLQ6r-aGrIFWo_1A9tKQ"
+
+    let ChannelSubs = () => {
+
+        fetch(`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/UChLNLQ6r-aGrIFWo_1A9tKQ`)
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            console.log(data);
+            longChannelSubscriberCount = numeral(data.userList[0].stats.subscriberCount).format('0,0');
+            console.log(longChannelSubscriberCount);
+        })
+
+    }
+
+    ChannelSubs();
+
+    let ChannelViews = () => {
+
+        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${longChannel}&key=${youtubeKey}`)
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            console.log(data);
+            longChannelViewCount = numeral(data["items"][0].statistics.viewCount).format('0.0a');
+            console.log(longChannelViewCount);
+        })
+
+    }
+
+    ChannelViews();
+
 
     signal.addEventListener("abort", () => {
         console.log("aborted!")
@@ -347,7 +389,7 @@ function loop(){
     controller.abort()
 
 }
-setInterval(loop, 1000*60*60*5.95)
+setInterval(loop, 1000*60*15)
 
 function sendTweet(){
     var today = new Date();
@@ -355,7 +397,8 @@ function sendTweet(){
     var time = today.getHours() + ":" + today.getMinutes();
     var dateandtime = date+' '+time;
 
-    T.post('statuses/update', { status:'🕒 '+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nHiRickX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDS: `+DSSubCount+'\nSubs estimated'})
+    //T.post('statuses/update', { status:'🕒 '+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nHiRickX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDS: `+DSSubCount+'\nSubs estimated'})
+    T.post('statuses/update', { status:'*New Channel Only*\n🕒 '+ dateandtime + '\nSubscriber Count:' + longChannelSubscriberCount + '\nView Count: ' + longChannelViewCount})
 }
 
 setInterval(sendTweet, 1000*60*60*6)
