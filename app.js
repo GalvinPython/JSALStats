@@ -389,7 +389,7 @@ function loop(){
     controller.abort()
 
 }
-setInterval(loop, 1000*60*15)
+setInterval(loop, 1000*60*14.9)
 
 function sendTweet(){
     var today = new Date();
@@ -401,4 +401,4 @@ function sendTweet(){
     T.post('statuses/update', { status:'*New Channel Only*\n🕒 '+ dateandtime + '\nSubscriber Count:' + longChannelSubscriberCount + '\nView Count: ' + longChannelViewCount})
 }
 
-setInterval(sendTweet, 1000*60*60*6)
+setInterval(sendTweet, 1000*60*15)
