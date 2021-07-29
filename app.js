@@ -394,11 +394,26 @@ setInterval(loop, 1000*60*14.9)
 function sendTweet(){
     var today = new Date();
     var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear()
-    var time = today.getHours() + ":" + today.getMinutes();
+    
+    var dateHour = today.getHours();
+    if (dateHour < 10) {
+        dateHour = "0" + dateHour;
+    }
+    else {
+    }
+    
+    var dateMinute = today.getMinutes();
+    if (dateMinute < 10) {
+        dateMinute = "0" + dateMinute;
+    }
+    else {
+    }
+    
+    var time = dateHour + ":" + dateMinute;
     var dateandtime = date+' '+time;
 
     //T.post('statuses/update', { status:'🕒 '+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nHiRickX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDS: `+DSSubCount+'\nSubs estimated'})
-    T.post('statuses/update', { status:'*New Channel Only*\n🕒 '+ dateandtime + '\nSubscriber Count:' + longChannelSubscriberCount + '\nView Count: ' + longChannelViewCount})
+    T.post('statuses/update', { status:'*New Channel Only*\n🕒 '+ dateandtime + '\nSubscriber Count: ' + longChannelSubscriberCount + '\nView Count: ' + longChannelViewCount})
 }
 
 setInterval(sendTweet, 1000*60*15)
