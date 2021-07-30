@@ -61,6 +61,11 @@ var DSSubCount;
 var longChannelSubscriberCount;
 var longChannelViewCount;
 
+function triggerEvent() {
+    sendTweet();
+}
+setTimeout(triggerEvent, 5000)
+
 function loop(){
 
     JSALSubCount = '';
@@ -381,7 +386,6 @@ function loop(){
 
     ChannelViews();
 
-
     signal.addEventListener("abort", () => {
         console.log("aborted!")
     })
@@ -389,7 +393,7 @@ function loop(){
     controller.abort()
 
 }
-setInterval(loop, 1000*60*14.9)
+setInterval(loop, 1000*60*15)
 
 function sendTweet(){
     var today = new Date();
