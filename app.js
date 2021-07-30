@@ -61,11 +61,6 @@ var DSSubCount;
 var longChannelSubscriberCount;
 var longChannelViewCount;
 
-function triggerEvent() {
-    sendTweet();
-}
-setTimeout(triggerEvent, 10000)
-
 function loop(){
 
     JSALSubCount = '';
@@ -394,6 +389,11 @@ function loop(){
 
 }
 setInterval(loop, 1000*60*15)
+
+function triggerEvent() {
+    sendTweet();
+}
+setTimeout(triggerEvent, 10000)
 
 function sendTweet(){
     var today = new Date();
