@@ -388,12 +388,14 @@ function loop(){
     controller.abort()
 
 }
-setInterval(loop, 1000*60*15)
+setInterval(loop, 1000*60*14.95)
 
+/*
 function triggerEvent() {
     sendTweet();
 }
 setTimeout(triggerEvent, 10000)
+*/
 
 function sendTweet(){
     var today = new Date();
