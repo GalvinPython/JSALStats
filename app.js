@@ -1,6 +1,6 @@
 //A Twitter Bot For Jack Massey Welsh's YouTube Statistics
 /* Useless version information:
-    Version: 2.5.3.3
+    Version: 2.5.3.3.2 (Version 2, Update 5, Patch 3, Update 3, Update 2)
     Date: Wednesday 7th July 2021
     Changelog: Fixed timings again
     Comment: I am stupid
@@ -418,7 +418,7 @@ function sendTweet(){
 
     //T.post('statuses/update', { status:'🕒 '+dateandtime+'\n\nJSAL:\nSubs: '+JSALSubCount+'\nViews: '+JSALViewCount+'\n\nJSAS:\nSubs: '+JSASSubCount+'\nViews: '+JSASViewCount+'\n\nJMW:\nSubs: '+JMWSubCount+'\nViews: '+JMWViewCount+'\n\nJSAG:\nSubs: '+JSAGSubCount+'\nViews: '+JSAGViewCount+'\n\nHiRickX:\nSubs: '+RickSubCount+'\nViews: '+RickViewCount+'\n\nJSAC:\nSubs: '+JSACSubCount+'\nViews: '+JSACViewCount+`\n\nDS: `+DSSubCount+'\nSubs estimated'})
     T.post('statuses/update', { status:'*New Channel Only*\n🕒 '+ dateandtime + '\nSubscriber Count: ' + longChannelSubscriberCount + '\nView Count: ' + longChannelViewCount})
-    Console.log("Tweet has been sent!")
+    console.log("Tweet has been sent!")
 }
 
 setInterval(sendTweet, 1000*60*15)
