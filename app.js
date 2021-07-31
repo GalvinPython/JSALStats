@@ -1,9 +1,10 @@
 //A Twitter Bot For Jack Massey Welsh's YouTube Statistics
 /* Useless version information:
-    Version: 2.6.1 (Version 2, Major Update 6, Patch 1)
+    Version: 2.6.2 (Version 2, Major Update 6, Patch 2)
     Date: Saturday 31st July 2021
     Changelog:  - More channels are now being tracked
                 - Patch 1: Updated 'let' failure
+                - Patch 2: Changed LongChannel() function to LongChannelData() to avoid conflicts
     Comment: Timelines are no longer cloggy
 */
 
@@ -216,7 +217,7 @@ function loop(){
     // JACKSEPICYOUTUBECHANNELFULLOFFUNTIMESANDFUNHIRICKXHASNOTHINGONMEIAMTHESUPERIORCHANNELIHAVEMORECHARACTERSTHANALLOFJACKSYOUTUBECHANNELSCOMBINEDHAHAHAHAIHAVEMORECHARACTERSTHANJACKSUCKSATLIFEJACKSUCKSATSTUFFJACKMASSEYWELSHJACKSUCKSATGEOGRAPHYJACKSUCKSATCLIPSSAMSMELLSOFAPRICOTSJACKSUCKSATPOPUPPIRATEETCETCIMAGINETHISONAPLAYBUTTONJESUSCHRISTBTWPLEASESUBSCRIBETHANKYOUVERYMUCHHIRICKXxXxXX
     const longChannel = "UChLNLQ6r-aGrIFWo_1A9tKQ"
 
-    let longChannel = () => {
+    let longChannelData = () => {
 
         fetch(`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/${longChannel}`)
         .then(response => {
@@ -229,7 +230,7 @@ function loop(){
         })
     }
 
-    longChannel();
+    longChannelData();
 
     // Don't Subscribe
 
