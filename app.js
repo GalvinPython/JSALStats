@@ -1,8 +1,9 @@
 //A Twitter Bot For Jack Massey Welsh's YouTube Statistics
 /* Useless version information:
-    Version: 2.6.0 (Version 2, Major Update 6, Patch 0)
+    Version: 2.6.1 (Version 2, Major Update 6, Patch 1)
     Date: Saturday 31st July 2021
-    Changelog: More channels are now being tracked
+    Changelog:  - More channels are now being tracked
+                - Patch 1: Updated 'let' failure
     Comment: Timelines are no longer cloggy
 */
 
@@ -104,7 +105,7 @@ function loop(){
     
     // JackSucksAtStuff
     const JSAS = 'UCxLIJccyaRQDeyu6RzUsPuw';
-    let JSALData = () => {
+    let JSASData = () => {
 
         fetch(`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/${JSAS}`)
         .then(response => {
@@ -117,7 +118,7 @@ function loop(){
         })
     }
 
-    JSALData();
+    JSASData();
 
     //Jack Massey Welsh
     const JMW = 'UCyktGLVQchOpvKgL7GShDWA';
