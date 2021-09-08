@@ -5,12 +5,12 @@
   "main": "app.js",
   "dependencies": {
     "abort-controller": "^3.0.0",
+    "eslint": "^7.32.0",
     "node-abort-controller": "^1.1.0",
     "node-fetch": "^2.6.1",
     "numeral": "^2.0.6",
     "twit": "^2.2.11"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
