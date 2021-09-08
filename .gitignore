@@ -1,6 +1,0 @@
-# .gitignore
-# files in root folder
-config.json
-# folders
-node_modules/
-src_control/
