@@ -7,19 +7,12 @@ const AbortController = require("abort-controller");
 var numeral = require('numeral');
 
 // authentication
-// assigning variables
-
-const consumerKey = require('./config.json');
-const consumerSecret = require('./config.json');
-const accessToken = require('./config.json');
-const accessTokenSecret = require('./config.json');
-
 // keys
-var T = new Twit({
-    consumer_key: consumerKey,
-    consumer_secret: consumerSecret,
-    access_token: accessToken,
-    access_token_secret: accessTokenSecret,
+const T = new Twit({
+    consumer_key: "FX0jdpTsPIAYFtgCHECQUi5hT",
+    consumer_secret: "kawmXBdxwQp7bq9EjlMkqGrojwWa3EGjjewa11ZCOjL2FtvyWb",
+    access_token: "1333138071974522884-xBn8y8WIzIjMXS11yCoOnE88TzheCq",
+    access_token_secret: "GIqKD4D81fK5NlShs6fVgIUTjPTdjYbUe6UTHuCdexAY9",
 });
 
 // stuff required for authentication
