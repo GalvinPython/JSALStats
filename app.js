@@ -24,6 +24,7 @@ let consumer_key_api;
 let consumer_secret_api;
 let access_token_api;
 let access_token_secret_api;
+const T;
 
 fetchKeys();
 
@@ -43,15 +44,24 @@ function fetchKeys() {
         console.log(access_token_api);
         console.log(access_token_secret_api);
         console.log("\nDone!");
+
+        T = new Twit({
+            consumer_key: consumer_key_api,
+            consumer_secret: consumer_secret_api,
+            access_token: access_token_api,
+            access_token_secret: access_token_secret_api,
+        });
     });
 }
 
+/*
 const T = new Twit({
     consumer_key: consumer_key_api,
     consumer_secret: consumer_secret_api,
     access_token: access_token_api,
     access_token_secret: access_token_secret_api,
 });
+*/
 
 // stuff required for authentication
 T.get('account/verify_credentials', {
