@@ -1,0 +1,60 @@
+DATA SET 1
+
+{
+  "account0": "@jsalstats",
+  "consumerKey": "FX0jdpTsPIAYFtgCHECQUi5hT",
+  "consumerSecret": "kawmXBdxwQp7bq9EjlMkqGrojwWa3EGjjewa11ZCOjL2FtvyWb",
+  "bearerToken": "AAAAAAAAAAAAAAAAAAAAAAJpKwEAAAAAuYVJ%2BzeSFhPplqD8LoKTjZVnbTE%3DRgWv44vSYDyCdbe4Nljzk2X2jehrN056qj0yAbsS2VhAi0rOAK",
+  "accessToken": "1333138071974522884-xBn8y8WIzIjMXS11yCoOnE88TzheCq",
+  "youtubeKey": "AIzaSyCQth83qBb3BbJ9l-Lg5Lb4CYKG8_j33XU",
+  "account1": "@egalvinyt",
+  "egalvinytConsumerKey": "73UCAWBRICfDrSPEYCImAoi3R",
+  "egalvinytConsumerSecret": "Lh9fQMToGFuyPrUjFTOLnWlQ9T8LEsG4YSkxk3kkfMuu5lHZZ6",
+  "egalvinytBearerToken": "AAAAAAAAAAAAAAAAAAAAAHfNKAEAAAAAXXl0cU%2Fw5x9%2FP7CzohoLP3WEIMM%3DSQ0PDJdISLiHUTtcSwrSwQBp6EULAUa00kB9Mv7cXYV69dkcWi",
+  "egalvinytAccessToken": "1078226118157762560-7oCBu1uyb3vIsvbNoqtTZdPw73MVk5",
+  "egalvinytAccessTokenSecret": "e7x1nMlJCy9mWhqihTT7ru3Ib4xeADKI7JnNLz6B3vfZW"
+}
+
+DATA SET 2
+
+{
+    "account0": "@jsalstats",
+    "account0data": [
+        {
+            "consumerKey": "FX0jdpTsPIAYFtgCHECQUi5hT"
+        },
+        {
+            "consumerSecret": "kawmXBdxwQp7bq9EjlMkqGrojwWa3EGjjewa11ZCOjL2FtvyWb"
+        },
+        {
+            "bearerToken": "AAAAAAAAAAAAAAAAAAAAAAJpKwEAAAAAuYVJ%2BzeSFhPplqD8LoKTjZVnbTE%3DRgWv44vSYDyCdbe4Nljzk2X2jehrN056qj0yAbsS2VhAi0rOAK"
+        },
+        {
+            "accessToken": "1333138071974522884-xBn8y8WIzIjMXS11yCoOnE88TzheCq"
+        },
+        {
+            "accessTokenSecret": "GIqKD4D81fK5NlShs6fVgIUTjPTdjYbUe6UTHuCdexAY9"
+        }
+    ],
+    
+    "account1": "@egalvinyt",
+    "account1data": [
+        {
+            "egalvinytConsumerKey": "73UCAWBRICfDrSPEYCImAoi3R"
+        },
+        {
+            "egalvinytConsumerSecret": "Lh9fQMToGFuyPrUjFTOLnWlQ9T8LEsG4YSkxk3kkfMuu5lHZZ6"
+        },
+        {
+            "egalvinytBearerToken": "AAAAAAAAAAAAAAAAAAAAAHfNKAEAAAAAXXl0cU%2Fw5x9%2FP7CzohoLP3WEIMM%3DSQ0PDJdISLiHUTtcSwrSwQBp6EULAUa00kB9Mv7cXYV69dkcWi"
+        },
+        {
+            "egalvinytAccessToken": "1078226118157762560-7oCBu1uyb3vIsvbNoqtTZdPw73MVk5"
+        },
+        {
+            "egalvinytAccessTokenSecret": "e7x1nMlJCy9mWhqihTT7ru3Ib4xeADKI7JnNLz6B3vfZW"
+        }
+    ],
+
+    "youtubeKey": "AIzaSyCQth83qBb3BbJ9l-Lg5Lb4CYKG8_j33XU"
+}
