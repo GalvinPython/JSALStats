@@ -20,6 +20,9 @@ const fetch = require("node-fetch");
 
 /* AUTHENTICATION */
 
+/*
+FIX THIS ISSUE EVENTUALLY
+
 let consumer_key_api;
 let consumer_secret_api;
 let access_token_api;
@@ -53,15 +56,14 @@ function fetchKeys() {
         });
     });
 }
-
-/*
-const T = new Twit({
-    consumer_key: consumer_key_api,
-    consumer_secret: consumer_secret_api,
-    access_token: access_token_api,
-    access_token_secret: access_token_secret_api,
-});
 */
+
+const T = new Twit({
+    consumer_key: "MAQlrIEJtMNGrkVnQqkC7C4DD",
+    consumer_secret: "1KwVhzrLfPTHZmdu1qzbJKuyQlHSA9LDoQMLt9c8776sCMGO7m",
+    access_token: "1333138071974522884-O0okw8qQMGWyleOwuOfM69q21OBDj3",
+    access_token_secret: "COVfvMZVdcZHVTFQqBpUXqrJsuMKKtmIl9LMMHnQZtxQc",
+});
 
 // stuff required for authentication
 T.get('account/verify_credentials', {
@@ -306,7 +308,7 @@ setInterval(sendTweet, 1000 * 60 * 60);
 /**
  * END OF CODE
  * JSALStats Twitter Account: https://www.twitter.com/jsalstats
- * JSALStats GitHub repo: https://www.github.com/galvinpython/jsalstats
+ * JSALStats GitHub: https://www.github.com/galvinpython/jsalstats
  *
  * JSALStats is licensed under the MIT License
  */
