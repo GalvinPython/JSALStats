@@ -174,7 +174,7 @@ function loop() {
 
     let JMWData = () => {
 
-        fetch(`https://mixerno.space/api/youtube-subscriber-counter/user/${JMW}`)
+        fetch(`https://mixerno.space/api/youtube-channel-counter/user/${JMW}`)
         .then(response => {
             return response.json();
         })
@@ -192,7 +192,7 @@ function loop() {
 
     let JSAGData = () => {
 
-        fetch(`https://mixerno.space/api/youtube-subscriber-counter/user/${JSAG}`)
+        fetch(`https://mixerno.space/api/youtube-channel-counter/user/${JSAG}`)
         .then(response => {
             return response.json();
         })
@@ -210,7 +210,7 @@ function loop() {
 
     let JSACData = () => {
 
-        fetch(`https://mixerno.space/api/youtube-subscriber-counter/user/${JSAC}`)
+        fetch(`https://mixerno.space/api/youtube-channel-counter/user/${JSAC}`)
         .then(response => {
             return response.json();
         })
