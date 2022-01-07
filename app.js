@@ -150,8 +150,6 @@ function loop() {
         });
     };
 
-    JSALData();
-
     // JackSucksAtStuff
     const JSAS = 'UCxLIJccyaRQDeyu6RzUsPuw';
     let JSASData = () => {
@@ -166,8 +164,6 @@ function loop() {
             console.log("JSAS: " + JSASSubCount + " | " + JSASViewCount);
         });
     };
-
-    JSASData();
 
     // Jack Massey Welsh
     const JMW = 'UCyktGLVQchOpvKgL7GShDWA';
@@ -185,8 +181,6 @@ function loop() {
         });
     };
 
-    JMWData();
-
     // JackSucksAtGeography
     const JSAG = 'UCd15dSPPT-EhTXekA7_UNAQ';
 
@@ -198,12 +192,10 @@ function loop() {
         })
         .then(data => {
             JSAGSubCount = numeral(data.counts[0].count).format('0,0');
-            JSAGViewCount = numeral(data.counts[0].count).format('0,0');
+            JSAGViewCount = numeral(data.counts[3].count).format('0,0');
             console.log("JSAG: " + JSAGSubCount + " | " + JSAGViewCount);
         });
     };
-
-    JSAGData();
 
     // JackSucksAtClips
     const JSAC = 'UCUXNOmIdsoyd5fh5TZHHO5Q';
@@ -216,12 +208,10 @@ function loop() {
         })
         .then(data => {
             JSACSubCount = numeral(data.counts[0].count).format('0,0');
-            JSACViewCount = numeral(data.counts[0].count).format('0,0');
+            JSACViewCount = numeral(data.counts[3].count).format('0,0');
             console.log("JSAC: " + JSACSubCount + " | " + JSACViewCount);
         });
     };
-
-    JSACData();
 
     /**
      * The following channels are no longer being tracked
@@ -272,6 +262,13 @@ function loop() {
         console.log("aborted!");
     });
     controller.abort();
+
+    /* Call Functions */
+    JSALData();
+    JSASData();
+    JMWData();
+    JSAGData();
+    JSACData();
 
 }
 setInterval(loop, 1000 * 60 * 59.95);

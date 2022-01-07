@@ -3,8 +3,15 @@ Is there a need to explain the point of this file?
 This file only tracks the latest major version and following revisions/subversions
 Note: *There is no changelog available for V3 and earlier*
 
+# Version 3.0.2 Changelog
+- Functions are called at end of code
+- Fixed wrong view array for JSAGData() and JSACData() 
+
+# Version 3.0.1 Changelog
+- Fixed Mixerno.space links
+
 # Version 3 Changelog
-- Released: `02/11/2021`
+- Released: `06/01/2022`
 
 <!-- NEW SECTION -->
 # Changes
