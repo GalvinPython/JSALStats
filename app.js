@@ -59,10 +59,10 @@ function fetchKeys() {
 */
 
 const T = new Twit({
-    consumer_key: "MAQlrIEJtMNGrkVnQqkC7C4DD",
-    consumer_secret: "1KwVhzrLfPTHZmdu1qzbJKuyQlHSA9LDoQMLt9c8776sCMGO7m",
-    access_token: "1333138071974522884-O0okw8qQMGWyleOwuOfM69q21OBDj3",
-    access_token_secret: "COVfvMZVdcZHVTFQqBpUXqrJsuMKKtmIl9LMMHnQZtxQc",
+    consumer_key: "ySe6iIF4v71SK9VxVnEAe8Fea",
+    consumer_secret: "kMU4E2J01dCsCBk4oGIaRmvfS45HVLdU02JxaakT3stIHcEzMl",
+    access_token: "1333138071974522884-PDwQ9jjNpThA6aBdupRB9CwKC1qscC",
+    access_token_secret: "yDhKyo6WY6zXBJYPMnVYrfO1qhx0TFCrtQLNklRrPjjBVs",
 });
 
 // stuff required for authentication

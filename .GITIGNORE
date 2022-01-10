@@ -7,11 +7,10 @@
 node_modules/
 
 # Keep secrets
-config.json
+secrets.json
 
 # Used for testing purposes only. This mainly messes around with private stuff
 test.js 
-
 
 ### VisualStudioCode ###
 .vscode/*

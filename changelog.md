@@ -3,42 +3,50 @@ Is there a need to explain the point of this file?
 This file only tracks the latest major version and following revisions/subversions
 Note: *There is no changelog available for V3 and earlier*
 
-# Version 3.0.2 Changelog
+# Version 3.0.3
+- Released: `10/01/2022`
+- Addressed a severe issue (that no one's interested in)
+  - Twitter API keys were uploaded under *temp_json.txt*
+    - This file has been deleted
+  - Changed keys so that they are new, and *hopefully* ignored
+- Removed `Changelog` folder since there was no need for it
+
+# Version 3.0.2
 - Functions are called at end of code
 - Fixed wrong view array for JSAGData() and JSACData() 
 
-# Version 3.0.1 Changelog
+# Version 3.0.1
 - Fixed Mixerno.space links
 
-# Version 3 Changelog
+# Version 3.0.0
 - Released: `06/01/2022`
 
 <!-- NEW SECTION -->
-# Changes
-## API
+## Changes
+### API
 - Still using [Mixerno](https://www.mixerno.space) for their API
   - However, the API is now located on a different link
 
-## Channels being tracked
+### Channels being tracked
 - *JackSucksAtClips/JSAC* wasn't being tracked due to inactivity, however it's back.
   - The channel is marked by a `💜`
 - As the challenge is over, *Don't Subscribe/DS* is now no longer being tracked
 - *JACKSEPICYOUTUBECHANNELFULLOFFUNTIMESANDFUNHIRICKXHASNOTHINGONMEIAMTHESUPERIORCHANNELIHAVEMORECHARACTERSTHANALLOFJACKSYOUTUBECHANNELSCOMBINEDHAHAHAHAIHAVEMORECHARACTERSTHANJACKSUCKSATLIFEJACKSUCKSATSTUFFJACKMASSEYWELSHJACKSUCKSATGEOGRAPHYJACKSUCKSATCLIPSSAMSMELLSOFAPRICOTSJACKSUCKSATPOPUPPIRATEETCETCIMAGINETHISONAPLAYBUTTONJESUSCHRISTBTWPLEASESUBSCRIBETHANKYOUVERYMUCHHIRICKXxXxXX* is also no longer being tracked due to inactivity
 
-## Technical
+### Technical
 - `app.js` + `config.json`
   - Instead of the API keys being embedded into `app.js`, the data from `config.json` is now loaded
 
-# Additions
+## Additions
 Right now, this update just covers some minor changes with the API stuff.  
 Things will be different in the future however 
 
 <!-- NEW SECTION -->
-## Technical
+### Technical
 - `config.json`
   - A file that holds keys
 
-## Tweets
+### Tweets
 - The following channels have their own emoji to easily see each channel
 | Channel | Emoji
 | :---: | :---:
