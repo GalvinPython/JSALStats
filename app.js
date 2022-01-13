@@ -88,6 +88,7 @@ function onAuthenticated(err) {
 // message to be sent that auth worked
 function sendAuthMSG() {
     console.log("Bot Restarted! Should be working :)");
+    // loop(); <-- TO TEST LATER
 }
 
 /* MAIN PART */
@@ -274,18 +275,21 @@ function loop() {
 setInterval(loop, 1000 * 60 * 59.95);
 
 function sendTweet() {
-    let today = new Date();
-    let date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
 
-    let dateHour = (today.getHours() + 1);
+    let dateHour = today.getHours();
+    // let dateHour = (today.getHours() + 1); BST
+    let dateMinute = today.getMinutes();
+
     if (dateHour < 10) {
         dateHour = "0" + dateHour;
     }
 
-    let dateMinute = today.getMinutes();
     if (dateMinute < 10) {
-        dateMinute = "0" + dateMinute;
+    dateMinute = "0" + dateMinute;
     }
+
+    let today = new Date();
+    let date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
 
     let time = dateHour + ":" + dateMinute;
     let dateandtime = date + ' ' + time;

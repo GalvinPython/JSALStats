@@ -3,8 +3,13 @@ Is there a need to explain the point of this file?
 This file only tracks the latest major version and following revisions/subversions
 Note: *There is no changelog available for V3 and earlier*
 
+# Version 3.0.4
+Released `13/01/2022`
+Description: `Fixed timezone issue`
+- Time now runs on GMT instead of BST
+
 # Version 3.0.3
-- Released: `10/01/2022`
+Released: `10/01/2022`
 - Addressed a severe issue (that no one's interested in)
   - Twitter API keys were uploaded under *temp_json.txt*
     - This file has been deleted
