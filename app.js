@@ -276,6 +276,8 @@ setInterval(loop, 1000 * 60 * 59.95);
 
 function sendTweet() {
 
+    let today = new Date();
+
     let dateHour = today.getHours();
     // let dateHour = (today.getHours() + 1); BST
     let dateMinute = today.getMinutes();
@@ -288,7 +290,6 @@ function sendTweet() {
     dateMinute = "0" + dateMinute;
     }
 
-    let today = new Date();
     let date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
 
     let time = dateHour + ":" + dateMinute;

@@ -3,8 +3,13 @@ Is there a need to explain the point of this file?
 This file only tracks the latest major version and following revisions/subversions
 Note: *There is no changelog available for V3 and earlier*
 
+# Version 3.0.4.2
+Released: `14/01/2022`
+Description: `Fixed date problem`
+- Date wasn't initialised before time was assigned, causing the bot to break
+
 # Version 3.0.4
-Released `13/01/2022`
+Released: `13/01/2022`
 Description: `Fixed timezone issue`
 - Time now runs on GMT instead of BST
 
