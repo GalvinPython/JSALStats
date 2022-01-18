@@ -276,10 +276,17 @@ setInterval(loop, 1000 * 60 * 59.95);
 
 function sendTweet() {
 
+    /* Get Date & Time */
+
+    // Date
     let today = new Date();
 
+    let todayDate = today.getDate();
+    let todayMonth = (today.getMonth() + 1);
+    let todayYear = today.getFullYear();
+
+    // Time
     let dateHour = today.getHours();
-    // let dateHour = (today.getHours() + 1); BST
     let dateMinute = today.getMinutes();
 
     if (dateHour < 10) {
@@ -290,10 +297,9 @@ function sendTweet() {
     dateMinute = "0" + dateMinute;
     }
 
-    let date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
-
-    let time = dateHour + ":" + dateMinute;
-    let dateandtime = date + ' ' + time;
+    let date = `${todayDate}/${todayMonth}${todayYear}`;
+    let time = `${dateHour}:${dateMinute}`;
+    let dateandtime = `${date} ${time}`;
 
     T.post('statuses/update', { status:'🕒 ' + dateandtime +
         '\n\n❤️ JSAL:\nSubs: ' + JSALSubCount + '\nViews: ' + JSALViewCount +
