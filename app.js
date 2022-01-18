@@ -297,7 +297,7 @@ function sendTweet() {
     dateMinute = "0" + dateMinute;
     }
 
-    let date = `${todayDate}/${todayMonth}${todayYear}`;
+    let date = `${todayDate}/${todayMonth}/${todayYear}`;
     let time = `${dateHour}:${dateMinute}`;
     let dateandtime = `${date} ${time}`;
 
