@@ -7,13 +7,13 @@ const { access } = require("fs");
 const fs = require('fs');
 
 // Needed to communicate with Twitter API
-var Twit = require("twit");
+let Twit = require("twit");
 
 // Abort a fetch. May not be necessary, but wise to :/
 const AbortController = require("abort-controller");
 
 // Convert numbers into user-friendly format
-var numeral = require('numeral');
+const numeral = require('numeral');
 
 // required to fetch data
 const fetch = require("node-fetch");
@@ -101,13 +101,16 @@ let JMWSubCount;
 let JMWViewCount;
 let JSAGSubCount;
 let JSAGViewCount;
-let JSACSubCount;
-let JSACViewCount;
+let NCJSALSubCount;
+let NCJSALViewCount;
+
 
 // BELOW VARIABLES ARE NO LONGER USED
 // let DSSubCount;
 // let longChannelSubscriberCount;
 // let longChannelViewCount;
+// let JSACSubCount;
+// let JSACViewCount;
 
 function loop() {
 
@@ -198,6 +201,15 @@ function loop() {
         });
     };
 
+    /**
+     * The following channels are no longer being tracked
+     * - JACKSEPICYOUTUBECHANNELFULLOFFUNTIMESANDFUNHIRICKXHASNOTHINGONMEIAMTHESUPERIORCHANNELIHAVEMORECHARACTERSTHANALLOFJACKSYOUTUBECHANNELSCOMBINEDHAHAHAHAIHAVEMORECHARACTERSTHANJACKSUCKSATLIFEJACKSUCKSATSTUFFJACKMASSEYWELSHJACKSUCKSATGEOGRAPHYJACKSUCKSATCLIPSSAMSMELLSOFAPRICOTSJACKSUCKSATPOPUPPIRATEETCETCIMAGINETHISONAPLAYBUTTONJESUSCHRISTBTWPLEASESUBSCRIBETHANKYOUVERYMUCHHIRICKXxXxXX
+     * - Don't Subscribe
+     * - JackSucksAtClips
+     */
+
+    /*
+
     // JackSucksAtClips
     const JSAC = 'UCUXNOmIdsoyd5fh5TZHHO5Q';
 
@@ -214,14 +226,6 @@ function loop() {
         });
     };
 
-    /**
-     * The following channels are no longer being tracked
-     * - JACKSEPICYOUTUBECHANNELFULLOFFUNTIMESANDFUNHIRICKXHASNOTHINGONMEIAMTHESUPERIORCHANNELIHAVEMORECHARACTERSTHANALLOFJACKSYOUTUBECHANNELSCOMBINEDHAHAHAHAIHAVEMORECHARACTERSTHANJACKSUCKSATLIFEJACKSUCKSATSTUFFJACKMASSEYWELSHJACKSUCKSATGEOGRAPHYJACKSUCKSATCLIPSSAMSMELLSOFAPRICOTSJACKSUCKSATPOPUPPIRATEETCETCIMAGINETHISONAPLAYBUTTONJESUSCHRISTBTWPLEASESUBSCRIBETHANKYOUVERYMUCHHIRICKXxXxXX
-     * - Don't Subscribe
-     * The channels have not had their API response updated yet. They are still using the legacy ones
-     */
-
-    /*
     // JACKSEPICYOUTUBECHANNELFULLOFFUNTIMESANDFUNHIRICKXHASNOTHINGONMEIAMTHESUPERIORCHANNELIHAVEMORECHARACTERSTHANALLOFJACKSYOUTUBECHANNELSCOMBINEDHAHAHAHAIHAVEMORECHARACTERSTHANJACKSUCKSATLIFEJACKSUCKSATSTUFFJACKMASSEYWELSHJACKSUCKSATGEOGRAPHYJACKSUCKSATCLIPSSAMSMELLSOFAPRICOTSJACKSUCKSATPOPUPPIRATEETCETCIMAGINETHISONAPLAYBUTTONJESUSCHRISTBTWPLEASESUBSCRIBETHANKYOUVERYMUCHHIRICKXxXxXX
     const longChannel = "UChLNLQ6r-aGrIFWo_1A9tKQ";
 
@@ -259,6 +263,21 @@ function loop() {
     DSSubs();
     */
 
+    const NCJSAL = 'UCrZKnWgOaYTTc7sc1KsVXZw';
+
+    let NCJSALData = () => {
+
+        fetch(`https://mixerno.space/api/youtube-channel-counter/user/${NCJSAL}`)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            NCJSALSubCount = numeral(data.counts[0].count).format('0,0');
+            NCJSALViewCount = numeral(data.counts[3].count).format('0,0');
+            console.log("JSAC: " + NCJSALSubCount + " | " + NCJSALViewCount);
+        });
+    };
+
     signal.addEventListener("abort", () => {
         console.log("aborted!");
     });
@@ -269,7 +288,7 @@ function loop() {
     JSASData();
     JMWData();
     JSAGData();
-    JSACData();
+    NCJSALData();
 
 }
 setInterval(loop, 1000 * 60 * 59.95);
@@ -281,9 +300,9 @@ function sendTweet() {
     // Date
     let today = new Date();
 
-    let todayDate = today.getDate();
-    let todayMonth = (today.getMonth() + 1);
-    let todayYear = today.getFullYear();
+    let todayDate = today.getUTCDate();
+    let todayMonth = (today.getUTCMonth() + 1);
+    let todayYear = today.getUTCFullYear();
 
     // Time
     let dateHour = today.getHours();
@@ -292,21 +311,18 @@ function sendTweet() {
     if (dateHour < 10) {
         dateHour = "0" + dateHour;
     }
-
     if (dateMinute < 10) {
     dateMinute = "0" + dateMinute;
     }
 
-    let date = `${todayDate}/${todayMonth}/${todayYear}`;
-    let time = `${dateHour}:${dateMinute}`;
-    let dateandtime = `${date} ${time}`;
+    let dateandtime = `${todayDate}/${todayMonth}/${todayYear} ${dateHour}:${dateMinute}`;
 
     T.post('statuses/update', { status:'🕒 ' + dateandtime +
         '\n\n❤️ JSAL:\nSubs: ' + JSALSubCount + '\nViews: ' + JSALViewCount +
         '\n\n💛 JSAS:\nSubs: ' + JSASSubCount + '\nViews: ' + JSASViewCount +
         '\n\n💙 JMW:\nSubs: ' + JMWSubCount + '\nViews: ' + JMWViewCount +
         '\n\n💚 JSAG:\nSubs: ' + JSAGSubCount + '\nViews: ' + JSAGViewCount +
-        '\n\n💜 JSAC:\nSubs: ' + JSACSubCount + '\nViews: ' + JSACViewCount });
+        '\n\n🖤 NCJSAL:\nSubs: ' + NCJSALSubCount + '\nViews ' + NCJSALViewCount });
     console.log("Tweet has been sent!");
 }
 
@@ -314,9 +330,11 @@ function sendTweet() {
 setInterval(sendTweet, 1000 * 60 * 60);
 
 /**
- * END OF CODE
  * JSALStats Twitter Account: https://www.twitter.com/jsalstats
  * JSALStats GitHub: https://www.github.com/galvinpython/jsalstats
  *
  * JSALStats is licensed under the MIT License
+ * By GalvinPython 2021, 2022
+ *
+ * END OF CODE
  */

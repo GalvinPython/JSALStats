@@ -3,13 +3,19 @@ Is there a need to explain the point of this file?
 This file only tracks the latest major version and following revisions/subversions
 Note: *There is no changelog available for V3 and earlier*
 
+# Version 3.1
+Released: `08/02/2022`  
+Description: `Support for new channel`
+- */app.js*
+  - Added section for new channel
+
 # Version 3.0.5
 Released: `18/01/2022`  
 Description: `Slightly updated formating`
 - */app.js*
   - Instead of using '+' to join strings, ${variable} has been used instead
 - */changelog.md*
-  - Fixed issue where the `Released` and `Description` fields were on same line-
+  - Fixed issue where the `Released` and `Description` fields were on same line
   - Versions with revisions will be indented further to make it more readable
 
 # Version 3.0.4
@@ -56,6 +62,7 @@ Released: `10/01/2022`
 ### Technical
 - `app.js` + `config.json`
   - Instead of the API keys being embedded into `app.js`, the data from `config.json` is now loaded
+  - **NOTE (01/02/2022): This file is have made void due to security issues. Fixing for 3.1.1**
 
 ## Additions
 Right now, this update just covers some minor changes with the API stuff.  
@@ -69,7 +76,7 @@ Things will be different in the future however
 ### Tweets
 - The following channels have their own emoji to easily see each channel
 | Channel | Emoji
-| :---: | :---:
+| --- | ---
 | JSAL (JackSucksAtLife)| ❤️ 
 | JSAS (JackSucksAtStuff) | 💛
 | JMW (Jack Massey Welsh) | 💙
