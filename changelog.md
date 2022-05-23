@@ -3,6 +3,11 @@ Is there a need to explain the point of this file?
 This file only tracks the latest major version and following revisions/subversions
 Note: *There is no changelog available for V3 and earlier*
 
+# Verson 3.0.4.2.1
+Updated: `23/05/2022`  
+Description: `Fixed issue in changelog.md`
+- An older version of this file didn't have a file correctly rendered
+
 # Version 3.0.4.2
 Released: `14/01/2022`
 Description: `Fixed date problem`
@@ -57,10 +62,11 @@ Things will be different in the future however
   - A file that holds keys
 
 ### Tweets
-- The following channels have their own emoji to easily see each channel
+- The following channels have their own emoji to easily see each channel  
+
 | Channel | Emoji
-| :---: | :---:
-| JSAL (JackSucksAtLife)| ❤️ 
+| --- | ---
+| JSAL (JackSucksAtLife)| ❤️
 | JSAS (JackSucksAtStuff) | 💛
 | JMW (Jack Massey Welsh) | 💙
 | JSAG (JackSucksAtGeography) | 💚
