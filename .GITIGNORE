@@ -6,11 +6,9 @@
 # Look at README.md for npms
 node_modules/
 
-# Keep secrets
-secrets.json
-
-# Used for testing purposes only. This mainly messes around with private stuff
-test.js 
+# Ignore private files
+private/
+init_run.ps1
 
 ### VisualStudioCode ###
 .vscode/*
