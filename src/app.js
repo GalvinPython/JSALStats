@@ -1,13 +1,16 @@
-// A Twitter Bot For Jack Massey Welsh's YouTube Statistics
-// Check CHANGELOG.md for updates
-
+/**
+ * A Twitter Bot For Jack Massey Welsh's YouTube Statistics
+ * Check CHANGELOG.md for updates
+ *
+ * Version 4.0.0.2
+ */
 /* REQUIRED MODULES */
 
 const { access } = require("fs");
 const fs = require('fs');
 
 // Needed to communicate with Twitter API
-let Twit = require("twit");
+const Twit = require("twit");
 
 // Abort a fetch. May not be necessary, but wise to :/
 const AbortController = require("abort-controller");
@@ -93,6 +96,9 @@ function sendAuthMSG() {
 
 /* MAIN PART */
 
+// Variables and Constants
+const baseURL = 'https://mixerno.space/api/youtube-channel-counter/user';
+
 let JSALSubCount;
 let JSALViewCount;
 let JSASSubCount;
@@ -143,7 +149,7 @@ function loop() {
     const JSAL = 'UCewMTclBJZPaNEfbf-qYMGA';
     let JSALData = () => {
 
-        fetch(`https://mixerno.space/api/youtube-channel-counter/user/${JSAL}`)
+        fetch(`${baseURL}/${JSAL}`)
         .then(response => {
             return response.json();
         })
@@ -158,7 +164,7 @@ function loop() {
     const JSAS = 'UCxLIJccyaRQDeyu6RzUsPuw';
     let JSASData = () => {
 
-        fetch(`https://mixerno.space/api/youtube-channel-counter/user/${JSAS}`)
+        fetch(`${baseURL}/${JSAS}`)
         .then(response => {
             return response.json();
         })
@@ -174,7 +180,7 @@ function loop() {
 
     let JMWData = () => {
 
-        fetch(`https://mixerno.space/api/youtube-channel-counter/user/${JMW}`)
+        fetch(`${baseURL}/${JMW}`)
         .then(response => {
             return response.json();
         })
@@ -190,7 +196,7 @@ function loop() {
 
     let JSAGData = () => {
 
-        fetch(`https://mixerno.space/api/youtube-channel-counter/user/${JSAG}`)
+        fetch(`${baseURL}/${JSAG}`)
         .then(response => {
             return response.json();
         })
@@ -215,7 +221,7 @@ function loop() {
 
     let JSACData = () => {
 
-        fetch(`https://mixerno.space/api/youtube-channel-counter/user/${JSAC}`)
+        fetch(`${baseURL}/${JSAC}`)
         .then(response => {
             return response.json();
         })
@@ -267,7 +273,7 @@ function loop() {
 
     let NCJSALData = () => {
 
-        fetch(`https://mixerno.space/api/youtube-channel-counter/user/${NCJSAL}`)
+        fetch(`${baseURL}/${NCJSAL}`)
         .then(response => {
             return response.json();
         })
