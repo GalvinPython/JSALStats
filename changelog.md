@@ -6,7 +6,7 @@ Note: *There is no changelog available for V4 and earlier. Please go [here](http
 # Version 4 Alpha
 ## V4.0.0.3
 - Commit: `08/06/22`  
--Description: **Updated Procfile**
+- Description: **Updated Procfile**
 ## Changes
 - Procfile
   - Why? Because why not
