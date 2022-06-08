@@ -4,6 +4,13 @@ This file only tracks the latest major version and following revisions/subversio
 Note: *There is no changelog available for V4 and earlier. Please go [here](https://github.com/GalvinPython/JSALStats/blob/old-v3/changelog.md) for V3 changelogs*
 
 # Version 4 Alpha
+## V4.0.0.3
+- Commit: `08/06/22`
+-Description: **Updated Procfile**
+## Changes
+- Procfile
+  - Why? Because why not
+
 ## V4.0.0.2
 - Commit: `3/6/22`
 - Description: **Updated URLs and metadata stuff**
