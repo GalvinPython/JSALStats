@@ -98,6 +98,7 @@ function sendAuthMSG() {
 
 // Variables and Constants
 const baseURL = 'https://mixerno.space/api/youtube-channel-counter/user';
+const d = new Date();
 
 let JSALSubCount;
 let JSALViewCount;
@@ -119,6 +120,8 @@ let NCJSALViewCount;
 // let JSACViewCount;
 
 function loop() {
+
+    console.log(`\nNew Fetch Occuring @ ${d.getTime()}`);
 
     JSALSubCount = '';
     JSALViewCount = '';
@@ -156,7 +159,7 @@ function loop() {
         .then(data => {
             JSALSubCount = numeral(data.counts[0].count).format('0,0');
             JSALViewCount = numeral(data.counts[3].count).format('0,0');
-            console.log("JSAL: " + JSALSubCount + " | " + JSALViewCount);
+            console.log(`❤ JSAL! Subs: ${JSALSubCount}, Views: ${JSALViewCount}`);
         });
     };
 
@@ -171,7 +174,7 @@ function loop() {
         .then(data => {
             JSASSubCount = numeral(data.counts[0].count).format('0,0');
             JSASViewCount = numeral(data.counts[3].count).format('0,0');
-            console.log("JSAS: " + JSASSubCount + " | " + JSASViewCount);
+            console.log(`💛 JSAS! Subs: ${JSASSubCount}, Views: ${JSASViewCount}`);
         });
     };
 
@@ -187,7 +190,7 @@ function loop() {
         .then(data => {
             JMWSubCount = numeral(data.counts[0].count).format('0,0');
             JMWViewCount = numeral(data.counts[3].count).format('0,0');
-            console.log("JMW: " + JMWSubCount + " | " + JMWViewCount);
+            console.log(`💙 JMW! Subs: ${JMWSubCount}, Views: ${JMWViewCount}`);
         });
     };
 
@@ -203,7 +206,7 @@ function loop() {
         .then(data => {
             JSAGSubCount = numeral(data.counts[0].count).format('0,0');
             JSAGViewCount = numeral(data.counts[3].count).format('0,0');
-            console.log("JSAG: " + JSAGSubCount + " | " + JSAGViewCount);
+            console.log(`💚 JSAG! Subs: ${JSAGSubCount}, Views: ${JSAGViewCount}`);
         });
     };
 
@@ -280,7 +283,7 @@ function loop() {
         .then(data => {
             NCJSALSubCount = numeral(data.counts[0].count).format('0,0');
             NCJSALViewCount = numeral(data.counts[3].count).format('0,0');
-            console.log("JSAC: " + NCJSALSubCount + " | " + NCJSALViewCount);
+            console.log(`🖤 NCJSAL! Subs: ${NCJSALSubCount}, Views: ${NCJSALViewCount}`);
         });
     };
 
@@ -303,16 +306,13 @@ function sendTweet() {
 
     /* Get Date & Time */
 
-    // Date
-    let today = new Date();
-
-    let todayDate = today.getUTCDate();
-    let todayMonth = (today.getUTCMonth() + 1);
-    let todayYear = today.getUTCFullYear();
+    let todayDate = d.getUTCDate();
+    let todayMonth = (d.getUTCMonth() + 1);
+    let todayYear = d.getUTCFullYear();
 
     // Time
-    let dateHour = today.getHours();
-    let dateMinute = today.getMinutes();
+    let dateHour = d.getHours();
+    let dateMinute = d.getMinutes();
 
     if (dateHour < 10) {
         dateHour = "0" + dateHour;
@@ -324,7 +324,7 @@ function sendTweet() {
     let dateandtime = `${todayDate}/${todayMonth}/${todayYear} ${dateHour}:${dateMinute}`;
 
     T.post('statuses/update', { status:'🕒 ' + dateandtime +
-        '\n\n❤️ JSAL:\nSubs: ' + JSALSubCount + '\nViews: ' + JSALViewCount +
+        '\n\n❤ JSAL:\nSubs: ' + JSALSubCount + '\nViews: ' + JSALViewCount +
         '\n\n💛 JSAS:\nSubs: ' + JSASSubCount + '\nViews: ' + JSASViewCount +
         '\n\n💙 JMW:\nSubs: ' + JMWSubCount + '\nViews: ' + JMWViewCount +
         '\n\n💚 JSAG:\nSubs: ' + JSAGSubCount + '\nViews: ' + JSAGViewCount +
@@ -337,7 +337,7 @@ setInterval(sendTweet, 1000 * 60 * 60);
 
 /**
  * JSALStats Twitter Account: https://www.twitter.com/jsalstats
- * JSALStats GitHub: https://www.github.com/galvinpython/jsalstats
+ * JSALStats GitHub: https://www.github.com/galvinpython/jsalstats/tree/main
  *
  * JSALStats is licensed under the MIT License
  * By GalvinPython 2021, 2022

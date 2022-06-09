@@ -17,6 +17,8 @@ Huge Note: **Use version 2.6.1 and not V3+. This causes errors as V3 doesn't sup
 Using Twitter API V1
 
 # Useful links
+## Changelog
+[Changelog](https://github.com/GalvinPython/JSALStats/blob/main/changelog.md)
 ## Twitter
 [Personal](https://wwww.twitter.com/egalvinyt)
 [Jack](https://www.twitter.com/jackmasseywelsh)

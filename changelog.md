@@ -4,6 +4,14 @@ This file only tracks the latest major version and following revisions/subversio
 Note: *There is no changelog available for V4 and earlier. Please go [here](https://github.com/GalvinPython/JSALStats/blob/old-v3/changelog.md) for V3 changelogs*
 
 # Version 4 Alpha
+## V4.0.0.4
+- Commit: `09/06/22`
+- Description: **Cleaning up on app.js + Visual Work**
+## Changes
+- app.js
+  - Updated `console.log()` functions to improve reading in logs *(minor/visual)*
+  - Outputs timestamp of new data fetch to improve reading in logs *(minor/visual)*
+
 ## V4.0.0.3
 - Commit: `08/06/22`  
 - Description: **Updated Procfile**
