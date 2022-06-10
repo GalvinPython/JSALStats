@@ -9,6 +9,7 @@ node_modules/
 # Ignore private files
 private/
 init_run.ps1
+archive/
 
 ### VisualStudioCode ###
 .vscode/*

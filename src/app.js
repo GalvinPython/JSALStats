@@ -61,12 +61,13 @@ function fetchKeys() {
 }
 */
 
-const T = new Twit({
-    consumer_key: "NIb5awRrI9mXawJNElMGwfuq0",
-    consumer_secret: "McGqTJl97WUfyQEd2X9YlXi1TIF2bqA7vZGHjXTmSByFdlDXjb",
-    access_token: "1333138071974522884-wmRHNoPvKU1ZZQBIxRI99rrtkpCwTH",
-    access_token_secret: "rq1xn8vJCG3y0IBpojGdpBhLpT6b2oEDFr8KghVpMY9qK",
-});
+// UNCOMMENT THIS SECTION
+// const T = new Twit({
+//     consumer_key: ""
+//     consumer_secret: "",
+//     access_token: "",
+//     access_token_secret: "",
+// });
 
 // stuff required for authentication
 T.get('account/verify_credentials', {
@@ -74,7 +75,6 @@ T.get('account/verify_credentials', {
     skip_status: true,
     include_email: false,
 }, onAuthenticated);
-
 // sends authentication request
 function onAuthenticated(err) {
     if (err) {

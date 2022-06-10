@@ -4,6 +4,16 @@ This file only tracks the latest major version and following revisions/subversio
 Note: *There is no changelog available for V4 and earlier. Please go [here](https://github.com/GalvinPython/JSALStats/blob/old-v3/changelog.md) for V3 changelogs*
 
 # Version 4 Alpha
+## V4.0.1
+- Commit: `10/06/22`
+- Description: **Fixed major security bug**
+## Changes
+- .GITIGNORE
+  - ignore archive folder
+- app.js
+  - Fixed security issue - tokens were committed to the repository
+  - These keys are now invalidated, and are removed
+
 ## V4.0.0.4
 - Commit: `09/06/22`
 - Description: **Cleaning up on app.js + Visual Work**
