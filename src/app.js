@@ -98,7 +98,7 @@ function sendAuthMSG() {
 
 // Variables and Constants
 const baseURL = 'https://mixerno.space/api/youtube-channel-counter/user';
-const d = new Date();
+let d = new Date();
 
 let JSALSubCount;
 let JSALViewCount;
