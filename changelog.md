@@ -4,6 +4,10 @@ This file only tracks the latest major version and following revisions/subversio
 Note: *There is no changelog available for V4 and earlier. Please go [here](https://github.com/GalvinPython/JSALStats/blob/old-v3/changelog.md) for V3 changelogs*
 
 ## Version 4 Beta
+## V4.0.2
+- Commit: `21/06/22`
+- Description: **Fixed security issues (finally)**
+
 ## V4.0.1.1
 - Commit: `11/06/22`
 - Description: **Fixed time bug**

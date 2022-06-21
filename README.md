@@ -9,7 +9,7 @@ This section is being updated
 Note: *eslint isn't required. However, it does make JS development a lot easier*
 
 ## node-fetch
-Huge Note: **Use version 2.6.1 and not V3+. This causes errors as V3 doesn't support `required()`**
+‼ IMPORTANT: **Use version 2.6.1 and not V3+. This causes errors as V3 doesn't support `required()`, and the bot may break**
 
 ## numeral
 

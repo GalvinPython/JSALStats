@@ -2,7 +2,7 @@
  * A Twitter Bot For Jack Massey Welsh's YouTube Statistics
  * Check CHANGELOG.md for updates
  *
- * Version 4.0.0.2
+ * Version 4.0.2
  */
 /* REQUIRED MODULES */
 
@@ -21,45 +21,9 @@ const numeral = require('numeral');
 // required to fetch data
 const fetch = require("node-fetch");
 
+const config = require('./config/config.js');
+
 /* AUTHENTICATION */
-
-/*
-FIX THIS ISSUE EVENTUALLY
-
-let consumer_key_api;
-let consumer_secret_api;
-let access_token_api;
-let access_token_secret_api;
-const T;
-
-fetchKeys();
-
-function fetchKeys() {
-    fs.readFile('./config.json', 'utf-8', (err, data) => {
-        if (err) throw err;
-        const dataResponse = JSON.parse(data);
-        console.log(dataResponse);
-
-        consumer_key_api = dataResponse.consumerKey;
-        consumer_secret_api = dataResponse.consumerSecret;
-        access_token_api = dataResponse.accessToken;
-        access_token_secret_api = dataResponse.accessTokenSecret;
-
-        console.log("\n" + consumer_key_api);
-        console.log(consumer_secret_api);
-        console.log(access_token_api);
-        console.log(access_token_secret_api);
-        console.log("\nDone!");
-
-        T = new Twit({
-            consumer_key: consumer_key_api,
-            consumer_secret: consumer_secret_api,
-            access_token: access_token_api,
-            access_token_secret: access_token_secret_api,
-        });
-    });
-}
-*/
 
 // UNCOMMENT THIS SECTION
 // const T = new Twit({
@@ -68,6 +32,8 @@ function fetchKeys() {
 //     access_token: "",
 //     access_token_secret: "",
 // });
+
+const T = new Twit(config);
 
 // stuff required for authentication
 T.get('account/verify_credentials', {

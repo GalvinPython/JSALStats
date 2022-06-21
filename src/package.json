@@ -1,10 +1,11 @@
 {
   "name": "jsalstats",
-  "version": "4.0.1.1",
+  "version": "4.0.2",
   "description": "Twitter Bot",
   "main": "app.js",
   "dependencies": {
     "abort-controller": "^3.0.0",
+    "dotenv": "^16.0.1",
     "eslint": "^7.32.0",
     "node-abort-controller": "^1.1.0",
     "node-fetch": "^2.6.1",
