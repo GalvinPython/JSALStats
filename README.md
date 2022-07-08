@@ -20,5 +20,5 @@ Using Twitter API V1
 ## Changelog
 [Changelog](https://github.com/GalvinPython/JSALStats/blob/main/changelog.md)
 ## Twitter
-[Personal](https://wwww.twitter.com/egalvinyt)
+[Personal](https://www.twitter.com/egalvinyt)  
 [Jack](https://www.twitter.com/jackmasseywelsh)
