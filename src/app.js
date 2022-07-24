@@ -2,11 +2,13 @@
  * A Twitter Bot For Jack Massey Welsh's YouTube Statistics
  * Check CHANGELOG.md for updates
  *
- * Version 4.0.2
+ * Version 4.0.2.1 (Unreleased)
  */
 /* REQUIRED MODULES */
 
+// eslint-disable-next-line no-unused-vars
 const { access } = require("fs");
+// eslint-disable-next-line no-unused-vars
 const fs = require('fs');
 
 // Needed to communicate with Twitter API
@@ -24,14 +26,6 @@ const fetch = require("node-fetch");
 const config = require('./config/config.js');
 
 /* AUTHENTICATION */
-
-// UNCOMMENT THIS SECTION
-// const T = new Twit({
-//     consumer_key: ""
-//     consumer_secret: "",
-//     access_token: "",
-//     access_token_secret: "",
-// });
 
 const T = new Twit(config);
 
@@ -64,52 +58,16 @@ function sendAuthMSG() {
 
 // Variables and Constants
 const baseURL = 'https://mixerno.space/api/youtube-channel-counter/user';
-let d = new Date();
 
-let JSALSubCount;
-let JSALViewCount;
-let JSASSubCount;
-let JSASViewCount;
-let JMWSubCount;
-let JMWViewCount;
-let JSAGSubCount;
-let JSAGViewCount;
-let NCJSALSubCount;
-let NCJSALViewCount;
-
-
-// BELOW VARIABLES ARE NO LONGER USED
-// let DSSubCount;
-// let longChannelSubscriberCount;
-// let longChannelViewCount;
-// let JSACSubCount;
-// let JSACViewCount;
+let JSALSubCount, JSALViewCount, JSASSubCount, JSASViewCount, JMWSubCount, JMWViewCount, JSAGSubCount, JSAGViewCount, NCJSALSubCount, NCJSALViewCount;
 
 function loop() {
-
-    console.log(`\nNew Fetch Occuring @ ${d.getTime()}`);
-
-    JSALSubCount = '';
-    JSALViewCount = '';
-    JSASSubCount = '';
-    JSASViewCount = '';
-    JMWSubCount = '';
-    JMWViewCount = '';
-    JSAGSubCount = '';
-    JSAGViewCount = '';
-    JSACSubCount = '';
-    JSACViewCount = '';
-
-    // BELOW VARIABLES ARE NO LONGER USED
-    // DSSubCount = '';
-    // longChannelSubscriberCount = '';
-    // longChannelViewCount = '';
 
     const controller = new AbortController();
     const signal = controller.signal;
 
     /**
-     * NOTE ABOUT USING MIXERNO API
+     * NOTE ABOUT USING THE ESTIMATED API
      * counts[0] is for Subscribers
      * counts[3] is for Views
      */
@@ -176,68 +134,7 @@ function loop() {
         });
     };
 
-    /**
-     * The following channels are no longer being tracked
-     * - JACKSEPICYOUTUBECHANNELFULLOFFUNTIMESANDFUNHIRICKXHASNOTHINGONMEIAMTHESUPERIORCHANNELIHAVEMORECHARACTERSTHANALLOFJACKSYOUTUBECHANNELSCOMBINEDHAHAHAHAIHAVEMORECHARACTERSTHANJACKSUCKSATLIFEJACKSUCKSATSTUFFJACKMASSEYWELSHJACKSUCKSATGEOGRAPHYJACKSUCKSATCLIPSSAMSMELLSOFAPRICOTSJACKSUCKSATPOPUPPIRATEETCETCIMAGINETHISONAPLAYBUTTONJESUSCHRISTBTWPLEASESUBSCRIBETHANKYOUVERYMUCHHIRICKXxXxXX
-     * - Don't Subscribe
-     * - JackSucksAtClips
-     */
-
-    /*
-
-    // JackSucksAtClips
-    const JSAC = 'UCUXNOmIdsoyd5fh5TZHHO5Q';
-
-    let JSACData = () => {
-
-        fetch(`${baseURL}/${JSAC}`)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            JSACSubCount = numeral(data.counts[0].count).format('0,0');
-            JSACViewCount = numeral(data.counts[3].count).format('0,0');
-            console.log("JSAC: " + JSACSubCount + " | " + JSACViewCount);
-        });
-    };
-
-    // JACKSEPICYOUTUBECHANNELFULLOFFUNTIMESANDFUNHIRICKXHASNOTHINGONMEIAMTHESUPERIORCHANNELIHAVEMORECHARACTERSTHANALLOFJACKSYOUTUBECHANNELSCOMBINEDHAHAHAHAIHAVEMORECHARACTERSTHANJACKSUCKSATLIFEJACKSUCKSATSTUFFJACKMASSEYWELSHJACKSUCKSATGEOGRAPHYJACKSUCKSATCLIPSSAMSMELLSOFAPRICOTSJACKSUCKSATPOPUPPIRATEETCETCIMAGINETHISONAPLAYBUTTONJESUSCHRISTBTWPLEASESUBSCRIBETHANKYOUVERYMUCHHIRICKXxXxXX
-    const longChannel = "UChLNLQ6r-aGrIFWo_1A9tKQ";
-
-    let longChannelData = () => {
-
-        fetch(`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/${longChannel}`)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            longChannelSubscriberCount = numeral(data.userList[0].stats.subscriberCount).format('0,0');
-            longChannelViewCount = numeral(data.userList[0].stats.viewCount).format('0,0');
-            console.log("Long Channel: " + longChannelSubscriberCount + " | " + longChannelViewCount);
-        });
-    };
-
-    longChannelData();
-
-    // Don't Subscribe
-
-    const DS = 'UC68DIXWCmetC8N5J_Kc5gjQ';
-    let DSSubs = () => {
-
-        fetch(`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/${DS}`)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-            DSSubCount = numeral(data.userList[0].stats.subscriberCount).format('0,0');
-            console.log(DSSubCount);
-        });
-    };
-
-    DSSubs();
-    */
-
+    // No Context JackSucksAtLife
     const NCJSAL = 'UCrZKnWgOaYTTc7sc1KsVXZw';
 
     let NCJSALData = () => {
@@ -272,6 +169,8 @@ function sendTweet() {
 
     /* Get Date & Time */
 
+    let d = new Date();
+
     let todayDate = d.getUTCDate();
     let todayMonth = (d.getUTCMonth() + 1);
     let todayYear = d.getUTCFullYear();
@@ -294,7 +193,7 @@ function sendTweet() {
         '\n\n💛 JSAS:\nSubs: ' + JSASSubCount + '\nViews: ' + JSASViewCount +
         '\n\n💙 JMW:\nSubs: ' + JMWSubCount + '\nViews: ' + JMWViewCount +
         '\n\n💚 JSAG:\nSubs: ' + JSAGSubCount + '\nViews: ' + JSAGViewCount +
-        '\n\n🖤 NCJSAL:\nSubs: ' + NCJSALSubCount + '\nViews ' + NCJSALViewCount });
+        '\n\n🖤 i:\nSubs: ' + NCJSALSubCount + '\nViews ' + NCJSALViewCount });
     console.log("Tweet has been sent!");
 }
 
@@ -303,10 +202,11 @@ setInterval(sendTweet, 1000 * 60 * 60);
 
 /**
  * JSALStats Twitter Account: https://www.twitter.com/jsalstats
- * JSALStats GitHub: https://www.github.com/galvinpython/jsalstats/tree/main
+ * JSALStats GitHub: https://www.github.com/galvinpython/jsalstats
  *
  * JSALStats is licensed under the MIT License
  * By GalvinPython 2021, 2022
  *
+ * Yes, this code looks ugly. There will be a cleanup :)
  * END OF CODE
  */

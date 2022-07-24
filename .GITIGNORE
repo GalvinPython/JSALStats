@@ -1,13 +1,9 @@
-# README.md contains all modules
+# Ignore modules
 node_modules/
 
 # Ignore private files
 private/
-# Ignore old ccode
 archive/
-
-# Ignore all powershell
-*.ps1
 
 # Ignore keys
 *.env

@@ -1,0 +1,105 @@
+{
+    "channels": [
+        {
+            "name": "JackSucksAtLife",
+            "abbr": "jsal",
+            "id": "",
+            "status": "active",
+            "heart": "❤"
+        },
+        {
+            "name": "JackSucksAtStuff",
+            "abbr": "jsas",
+            "id": "UCxLIJccyaRQDeyu6RzUsPuw",
+            "status": "active",
+            "heart": "💛"
+        },
+        {
+            "name": "Jack Massey Welsh",
+            "abbr": "jmw",
+            "id": "UCyktGLVQchOpvKgL7GShDWA",
+            "status": "active",
+            "heart": "💙"
+        },
+        {
+            "name": "JackSucksAtGeography",
+            "abbr": "jsag",
+            "id": "UCd15dSPPT-EhTXekA7_UNAQ",
+            "status": "active",
+            "heart": "💚"
+        },
+        {
+            "name": "JackSucksAtClips",
+            "abbr": "jsac",
+            "id": "UCUXNOmIdsoyd5fh5TZHHO5Q",
+            "status": "active",
+            "heart": "💜"
+        },
+        {
+            "name": "No Context JackSucksAtLife",
+            "abbr": "ncjsal",
+            "id": "UCrZKnWgOaYTTc7sc1KsVXZw",
+            "status": "active",
+            "heart": "🤍"
+        },
+        {
+            "name": "JackSucksAtEspañol",
+            "abbr": "jsae",
+            "id": "UCqx-my2rOoQuEOHKNNgNppw",
+            "status": "active",
+            "heart": "🧡"
+        },
+        {
+            "name": "JackSucksAtPopUpPirate",
+            "id": "UCpCJRHoggwXQhuFbW4gjM_w",
+            "status": "semi-active"
+        },
+        {
+            "name": "JacksEpicYoutubeChannel",
+            "id": "UCF9R3Ln-u52vUdSO-pFdETw",
+            "status": "semi-active"
+        },
+        {
+            "name": "turd boi420",
+            "id": "UCbu2qTa75eyjwCKOugX8F6A",
+            "status": "inactive"
+        },
+        {
+            "name": "JACKSEPICYOUTUBECHANNEL",
+            "id": "UChLNLQ6r-aGrIFWo_1A9tKQ",
+            "status": "inactive"
+        },
+        {
+            "name": "SamSmellsOfApricots",
+            "id": "",
+            "status": "inactive"
+        },
+        {
+            "name": "SamSmellsOfApricot",
+            "id": "UCgKbwxXkz95TYVcpvpkCjag",
+            "status": "inactive"
+        },
+        {
+            "name": "ejsafc",
+            "id": "",
+            "status": "inactive"
+        },
+        {
+            "name": "JackMasseyWelsh",
+            "id": "",
+            "status": "inactive"
+        }        
+    ],
+    "other_channels": [
+        {
+            "name": "TDD41",
+            "id": "",
+            "notes": "college channel"
+        },
+        {
+            "name": "Don't Subscribe",
+            "id": "",
+            "notes": "mrbeast challenge"
+        }
+    ]
+}
