@@ -30,7 +30,6 @@ Using Twitter API V1
 
 # Links
 ## Twitter
-<<<<<<< HEAD
 [@egalvinyt](https://wwww.twitter.com/egalvinyt)  
 [@jsalstats](https://twitter.com/jsalstats)  
 
@@ -43,7 +42,3 @@ Channels tweeted:
 - JackSucksAtStuff
 - JackSucksAtGeography
 - i
-=======
-[Personal](https://www.twitter.com/egalvinyt)  
-[Jack](https://www.twitter.com/jackmasseywelsh)
->>>>>>> 075060a73b5533864ef6f77e4ff42d07f78759a7
