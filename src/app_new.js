@@ -93,7 +93,7 @@ async function getData() {
 
     for (let i = 0; i < channelId.length; i++) {
         const element = channelId[i];
-        if (channelAbbr[i] != "null") {
+        if (channelAbbr[i] == "null") {
             await fetch(`${baseURLA}=${element}&key=${ytKey}`, {
                 timeout: 2000,
             }).then(response => response.json())

@@ -57,7 +57,7 @@ function sendAuthMSG() {
 /* MAIN PART */
 
 // Variables and Constants
-const baseURL = 'https://mixerno.space/api/youtube-channel-counter/user';
+const baseURL = 'https://api-v6.mixerno.space/youtube-channel-counter/live';
 
 let JSALSubCount, JSALViewCount, JSASSubCount, JSASViewCount, JMWSubCount, JMWViewCount, JSAGSubCount, JSAGViewCount, NCJSALSubCount, NCJSALViewCount;
 
@@ -81,8 +81,8 @@ function loop() {
             return response.json();
         })
         .then(data => {
-            JSALSubCount = numeral(data.counts[0].count).format('0,0');
-            JSALViewCount = numeral(data.counts[3].count).format('0,0');
+            JSALSubCount = numeral(data.subscribers).format('0,0');
+            JSALViewCount = numeral(data.views).format('0,0');
             console.log(`❤ JSAL! Subs: ${JSALSubCount}, Views: ${JSALViewCount}`);
         });
     };
@@ -96,8 +96,8 @@ function loop() {
             return response.json();
         })
         .then(data => {
-            JSASSubCount = numeral(data.counts[0].count).format('0,0');
-            JSASViewCount = numeral(data.counts[3].count).format('0,0');
+            JSASSubCount = numeral(data.subscribers).format('0,0');
+            JSASViewCount = numeral(data.views).format('0,0');
             console.log(`💛 JSAS! Subs: ${JSASSubCount}, Views: ${JSASViewCount}`);
         });
     };
@@ -112,8 +112,8 @@ function loop() {
             return response.json();
         })
         .then(data => {
-            JMWSubCount = numeral(data.counts[0].count).format('0,0');
-            JMWViewCount = numeral(data.counts[3].count).format('0,0');
+            JMWSubCount = numeral(data.subscribers).format('0,0');
+            JMWViewCount = numeral(data.views).format('0,0');
             console.log(`💙 JMW! Subs: ${JMWSubCount}, Views: ${JMWViewCount}`);
         });
     };
@@ -128,13 +128,13 @@ function loop() {
             return response.json();
         })
         .then(data => {
-            JSAGSubCount = numeral(data.counts[0].count).format('0,0');
-            JSAGViewCount = numeral(data.counts[3].count).format('0,0');
+            JSAGSubCount = numeral(data.subscribers).format('0,0');
+            JSAGViewCount = numeral(data.views).format('0,0');
             console.log(`💚 JSAG! Subs: ${JSAGSubCount}, Views: ${JSAGViewCount}`);
         });
     };
 
-    // No Context JackSucksAtLife
+    // i
     const NCJSAL = 'UCrZKnWgOaYTTc7sc1KsVXZw';
 
     let NCJSALData = () => {
@@ -144,8 +144,8 @@ function loop() {
             return response.json();
         })
         .then(data => {
-            NCJSALSubCount = numeral(data.counts[0].count).format('0,0');
-            NCJSALViewCount = numeral(data.counts[3].count).format('0,0');
+            NCJSALSubCount = numeral(data.subscribers).format('0,0');
+            NCJSALViewCount = numeral(data.views).format('0,0');
             console.log(`🖤 NCJSAL! Subs: ${NCJSALSubCount}, Views: ${NCJSALViewCount}`);
         });
     };
@@ -207,6 +207,7 @@ setInterval(sendTweet, 1000 * 60 * 60);
  * JSALStats is licensed under the MIT License
  * By GalvinPython 2021, 2022
  *
- * Yes, this code looks ugly. There will be a cleanup :)
+ * Note: V5 is using V4 code with new API endpoints
+ * V5 script can be found in app_new.js
  * END OF CODE
  */
