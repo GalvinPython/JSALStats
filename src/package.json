@@ -1,7 +1,7 @@
 {
   "name": "jsalstats",
-  "version": "4.0.2",
-  "description": "Twitter Bot",
+  "version": "4.0.2.2",
+  "description": "JSALStats Twitter Bot",
   "main": "app.js",
   "dependencies": {
     "abort-controller": "^3.0.0",

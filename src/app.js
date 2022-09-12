@@ -2,7 +2,8 @@
  * A Twitter Bot For Jack Massey Welsh's YouTube Statistics
  * Check CHANGELOG.md for updates
  *
- * Version 4.0.2.1 (Unreleased)
+ * Version 4.0.2.2
+ * Updated API
  */
 /* REQUIRED MODULES */
 
@@ -57,7 +58,7 @@ function sendAuthMSG() {
 /* MAIN PART */
 
 // Variables and Constants
-const baseURL = 'https://api-v6.mixerno.space/youtube-channel-counter/live';
+const baseURL = 'https://livecounts.xyz/api/youtube-live-subscriber-count/live';
 
 let JSALSubCount, JSALViewCount, JSASSubCount, JSASViewCount, JMWSubCount, JMWViewCount, JSAGSubCount, JSAGViewCount, NCJSALSubCount, NCJSALViewCount;
 
@@ -67,9 +68,9 @@ function loop() {
     const signal = controller.signal;
 
     /**
-     * NOTE ABOUT USING THE ESTIMATED API
+     * NOTE ABOUT USING THE NEW ESTIMATED API
      * counts[0] is for Subscribers
-     * counts[3] is for Views
+     * counts[1] is for Views
      */
 
     // JackSucksAtLife
@@ -81,7 +82,7 @@ function loop() {
             return response.json();
         })
         .then(data => {
-            JSALSubCount = numeral(data.subscribers).format('0,0');
+            JSALSubCount = numeral(data.counts[0]).format('0,0');
             JSALViewCount = numeral(data.views).format('0,0');
             console.log(`❤ JSAL! Subs: ${JSALSubCount}, Views: ${JSALViewCount}`);
         });
@@ -96,7 +97,7 @@ function loop() {
             return response.json();
         })
         .then(data => {
-            JSASSubCount = numeral(data.subscribers).format('0,0');
+            JSASSubCount = numeral(data.counts[0]).format('0,0');
             JSASViewCount = numeral(data.views).format('0,0');
             console.log(`💛 JSAS! Subs: ${JSASSubCount}, Views: ${JSASViewCount}`);
         });
@@ -112,7 +113,7 @@ function loop() {
             return response.json();
         })
         .then(data => {
-            JMWSubCount = numeral(data.subscribers).format('0,0');
+            JMWSubCount = numeral(data.counts[0]).format('0,0');
             JMWViewCount = numeral(data.views).format('0,0');
             console.log(`💙 JMW! Subs: ${JMWSubCount}, Views: ${JMWViewCount}`);
         });
@@ -128,7 +129,7 @@ function loop() {
             return response.json();
         })
         .then(data => {
-            JSAGSubCount = numeral(data.subscribers).format('0,0');
+            JSAGSubCount = numeral(data.counts[0]).format('0,0');
             JSAGViewCount = numeral(data.views).format('0,0');
             console.log(`💚 JSAG! Subs: ${JSAGSubCount}, Views: ${JSAGViewCount}`);
         });
@@ -144,7 +145,7 @@ function loop() {
             return response.json();
         })
         .then(data => {
-            NCJSALSubCount = numeral(data.subscribers).format('0,0');
+            NCJSALSubCount = numeral(data.counts[0]).format('0,0');
             NCJSALViewCount = numeral(data.views).format('0,0');
             console.log(`🖤 NCJSAL! Subs: ${NCJSALSubCount}, Views: ${NCJSALViewCount}`);
         });
