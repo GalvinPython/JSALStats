@@ -2,8 +2,8 @@
  * A Twitter Bot For Jack Massey Welsh's YouTube Statistics
  * Check CHANGELOG.md for updates
  *
- * Version 4.0.2.2.1
- * Added Geography Stuff 🌎
+ * Version 4.0.2.2.2
+ * Fixed views endpoint
  */
 /* REQUIRED MODULES */
 
@@ -83,7 +83,7 @@ function loop() {
         })
         .then(data => {
             JSALSubCount = numeral(data.counts[0]).format('0,0');
-            JSALViewCount = numeral(data.views).format('0,0');
+            JSALViewCount = numeral(data.counts[1]).format('0,0');
             console.log(`❤ JSAL! Subs: ${JSALSubCount}, Views: ${JSALViewCount}`);
         });
     };
@@ -98,7 +98,7 @@ function loop() {
         })
         .then(data => {
             JSASSubCount = numeral(data.counts[0]).format('0,0');
-            JSASViewCount = numeral(data.views).format('0,0');
+            JSASViewCount = numeral(data.counts[1]).format('0,0');
             console.log(`💛 JSAS! Subs: ${JSASSubCount}, Views: ${JSASViewCount}`);
         });
     };
@@ -114,7 +114,7 @@ function loop() {
         })
         .then(data => {
             JMWSubCount = numeral(data.counts[0]).format('0,0');
-            JMWViewCount = numeral(data.views).format('0,0');
+            JMWViewCount = numeral(data.counts[1]).format('0,0');
             console.log(`💙 JMW! Subs: ${JMWSubCount}, Views: ${JMWViewCount}`);
         });
     };
@@ -130,7 +130,7 @@ function loop() {
         })
         .then(data => {
             JSAGSubCount = numeral(data.counts[0]).format('0,0');
-            JSAGViewCount = numeral(data.views).format('0,0');
+            JSAGViewCount = numeral(data.counts[1]).format('0,0');
             console.log(`💚 JSAG! Subs: ${JSAGSubCount}, Views: ${JSAGViewCount}`);
         });
     };
@@ -146,7 +146,7 @@ function loop() {
         })
         .then(data => {
             GSSubCount = numeral(data.counts[0]).format('0,0');
-            GSViewCount = numeral(data.views).format('0,0');
+            GSViewCount = numeral(data.counts[1]).format('0,0');
             console.log(`🖤 GS! Subs: ${GSSubCount}, Views: ${GSViewCount}`);
         });
     };
