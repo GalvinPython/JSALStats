@@ -2,8 +2,8 @@
  * A Twitter Bot For Jack Massey Welsh's YouTube Statistics
  * Check CHANGELOG.md for updates
  *
- * Version 4.0.2.2
- * Updated API
+ * Version 4.0.2.2.1
+ * Added Geography Stuff 🌎
  */
 /* REQUIRED MODULES */
 
@@ -60,7 +60,7 @@ function sendAuthMSG() {
 // Variables and Constants
 const baseURL = 'https://livecounts.xyz/api/youtube-live-subscriber-count/live';
 
-let JSALSubCount, JSALViewCount, JSASSubCount, JSASViewCount, JMWSubCount, JMWViewCount, JSAGSubCount, JSAGViewCount, NCJSALSubCount, NCJSALViewCount;
+let JSALSubCount, JSALViewCount, JSASSubCount, JSASViewCount, JMWSubCount, JMWViewCount, JSAGSubCount, JSAGViewCount, GSSubCount, GSViewCount;
 
 function loop() {
 
@@ -135,19 +135,19 @@ function loop() {
         });
     };
 
-    // i
-    const NCJSAL = 'UCrZKnWgOaYTTc7sc1KsVXZw';
+    // Geography Stuff 🌎
+    const GS = 'UC_7K5gOJJ3urQR53ltIck8w';
 
-    let NCJSALData = () => {
+    let GSData = () => {
 
-        fetch(`${baseURL}/${NCJSAL}`)
+        fetch(`${baseURL}/${GS}`)
         .then(response => {
             return response.json();
         })
         .then(data => {
-            NCJSALSubCount = numeral(data.counts[0]).format('0,0');
-            NCJSALViewCount = numeral(data.views).format('0,0');
-            console.log(`🖤 NCJSAL! Subs: ${NCJSALSubCount}, Views: ${NCJSALViewCount}`);
+            GSSubCount = numeral(data.counts[0]).format('0,0');
+            GSViewCount = numeral(data.views).format('0,0');
+            console.log(`🖤 GS! Subs: ${GSSubCount}, Views: ${GSViewCount}`);
         });
     };
 
@@ -161,7 +161,7 @@ function loop() {
     JSASData();
     JMWData();
     JSAGData();
-    NCJSALData();
+    GSData();
 
 }
 setInterval(loop, 1000 * 60 * 59.95);
@@ -180,12 +180,8 @@ function sendTweet() {
     let dateHour = d.getHours();
     let dateMinute = d.getMinutes();
 
-    if (dateHour < 10) {
-        dateHour = "0" + dateHour;
-    }
-    if (dateMinute < 10) {
-    dateMinute = "0" + dateMinute;
-    }
+    if (dateHour < 10) { dateHour = "0" + dateHour; }
+    if (dateMinute < 10) { dateMinute = "0" + dateMinute; }
 
     let dateandtime = `${todayDate}/${todayMonth}/${todayYear} ${dateHour}:${dateMinute}`;
 
@@ -194,7 +190,7 @@ function sendTweet() {
         '\n\n💛 JSAS:\nSubs: ' + JSASSubCount + '\nViews: ' + JSASViewCount +
         '\n\n💙 JMW:\nSubs: ' + JMWSubCount + '\nViews: ' + JMWViewCount +
         '\n\n💚 JSAG:\nSubs: ' + JSAGSubCount + '\nViews: ' + JSAGViewCount +
-        '\n\n🖤 i:\nSubs: ' + NCJSALSubCount + '\nViews ' + NCJSALViewCount });
+        '\n\n🖤 🌎:\nSubs: ' + GSSubCount + '\nViews ' + GSViewCount });
     console.log("Tweet has been sent!");
 }
 

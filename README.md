@@ -13,6 +13,9 @@ Install all files running `npm install`
 ## abort-controller
 **Being updated**  
 
+## dotenv
+**Being updated**
+
 ## eslint
 **Being updated**  
 Note: *eslint isn't required. However, it does make JS development a lot easier. Use the `.eslintrc.json` file for my settings*
