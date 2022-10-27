@@ -1,19 +1,18 @@
 /**
  * A Twitter Bot For Jack Massey Welsh's YouTube Statistics
- * Check CHANGELOG.md for updates
  *
- * Version 4.0.2.2.2
- * Fixed views endpoint
+ * Version 5
+ * Updated to Twitter API V2
  */
 /* REQUIRED MODULES */
+
+const rwClient = require('./utils/twitterClient');
+console.log("Bot using API V2 should be online!");
 
 // eslint-disable-next-line no-unused-vars
 const { access } = require("fs");
 // eslint-disable-next-line no-unused-vars
 const fs = require('fs');
-
-// Needed to communicate with Twitter API
-const Twit = require("twit");
 
 // Abort a fetch. May not be necessary, but wise to :/
 const AbortController = require("abort-controller");
@@ -24,43 +23,14 @@ const numeral = require('numeral');
 // required to fetch data
 const fetch = require("node-fetch");
 
-const config = require('./config/config.js');
-
-/* AUTHENTICATION */
-
-const T = new Twit(config);
-
-// stuff required for authentication
-T.get('account/verify_credentials', {
-    include_entities: false,
-    skip_status: true,
-    include_email: false,
-}, onAuthenticated);
-// sends authentication request
-function onAuthenticated(err) {
-    if (err) {
-        console.log(err);
-    } else {
-    console.log('Authentication successful.');
-}}
-
-// sends authentication request then sends tweet
-function onAuthenticated(err) {
-    sendAuthMSG();
-}
-
-// message to be sent that auth worked
-function sendAuthMSG() {
-    console.log("Bot Restarted! Should be working :)");
-    // loop(); <-- TO TEST LATER
-}
+// const config = require('./config/config.js'); <-- Config is bugged on latest version
 
 /* MAIN PART */
 
 // Variables and Constants
 const baseURL = 'https://livecounts.xyz/api/youtube-live-subscriber-count/live';
 
-let JSALSubCount, JSALViewCount, JSASSubCount, JSASViewCount, JMWSubCount, JMWViewCount, JSAGSubCount, JSAGViewCount, GSSubCount, GSViewCount;
+let JSALSubCount, JSALViewCount, JSASSubCount, JSASViewCount, JSAGSubCount, JSAGViewCount, GSSubCount, GSViewCount;
 
 function loop() {
 
@@ -100,22 +70,6 @@ function loop() {
             JSASSubCount = numeral(data.counts[0]).format('0,0');
             JSASViewCount = numeral(data.counts[1]).format('0,0');
             console.log(`💛 JSAS! Subs: ${JSASSubCount}, Views: ${JSASViewCount}`);
-        });
-    };
-
-    // Jack Massey Welsh
-    const JMW = 'UCyktGLVQchOpvKgL7GShDWA';
-
-    let JMWData = () => {
-
-        fetch(`${baseURL}/${JMW}`)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            JMWSubCount = numeral(data.counts[0]).format('0,0');
-            JMWViewCount = numeral(data.counts[1]).format('0,0');
-            console.log(`💙 JMW! Subs: ${JMWSubCount}, Views: ${JMWViewCount}`);
         });
     };
 
@@ -159,7 +113,6 @@ function loop() {
     /* Call Functions */
     JSALData();
     JSASData();
-    JMWData();
     JSAGData();
     GSData();
 
@@ -185,12 +138,19 @@ function sendTweet() {
 
     let dateandtime = `${todayDate}/${todayMonth}/${todayYear} ${dateHour}:${dateMinute}`;
 
-    T.post('statuses/update', { status:'🕒 ' + dateandtime +
-        '\n\n❤ JSAL:\nSubs: ' + JSALSubCount + '\nViews: ' + JSALViewCount +
-        '\n\n💛 JSAS:\nSubs: ' + JSASSubCount + '\nViews: ' + JSASViewCount +
-        '\n\n💙 JMW:\nSubs: ' + JMWSubCount + '\nViews: ' + JMWViewCount +
-        '\n\n💚 JSAG:\nSubs: ' + JSAGSubCount + '\nViews: ' + JSAGViewCount +
-        '\n\n🖤 🌎:\nSubs: ' + GSSubCount + '\nViews ' + GSViewCount });
+    const tweet = async () => {
+        try {
+            await rwClient.tweet(`📅 ${dateandtime}
+            \n\n❤ JSAL:\nSubs: ${JSALSubCount}\nViews: ${JSALViewCount}
+            \n\n💛 JSAS:\nSubs: ${JSASSubCount}\nViews: ${JSASViewCount}
+            \n\n💚 JSAG:\nSubs: ${JSAGSubCount}\nViews: ${JSAGViewCount}
+            \n\n💙 GS🌎:\nSubs: ${GSSubCount}\nViews ${GSViewCount}`);
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    tweet();
     console.log("Tweet has been sent!");
 }
 

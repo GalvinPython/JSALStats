@@ -1,2 +1,0 @@
-set-location src
-node .

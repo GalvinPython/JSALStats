@@ -1,8 +1,8 @@
 {
   "name": "jsalstats",
-  "version": "4.0.2.2.1",
+  "version": "5.0",
   "description": "JSALStats Twitter Bot",
-  "main": "app.js",
+  "main": "app_v2.js",
   "dependencies": {
     "abort-controller": "^3.0.0",
     "dotenv": "^16.0.1",
@@ -10,7 +10,8 @@
     "node-abort-controller": "^1.1.0",
     "node-fetch": "^2.6.1",
     "numeral": "^2.0.6",
-    "twit": "^2.2.11"
+    "twit": "^2.2.11",
+    "twitter-api-v2": "^1.12.9"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

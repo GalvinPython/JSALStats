@@ -7,29 +7,11 @@ The bot uses the following packages:
 - eslint
 - node-fetch
 - numeral
-- twit  
+- twitter-api-v2
 
-Install all files running `npm install`
-## abort-controller
-**Being updated**  
-
-## dotenv
-**Being updated**
-
-## eslint
-**Being updated**  
-Note: *eslint isn't required. However, it does make JS development a lot easier. Use the `.eslintrc.json` file for my settings*
-
-## node-fetch
-**Being updated**  
-&#10071; IMPORTANT: **Use version 2.6.1 and not V3+. This causes errors as V3 doesn't support the `required()` module** &#10071;  
-
-## numeral
-**Being updated**  
-
-## twit
-**Being updated**  
-Using Twitter API V1
+## NPM Noticies
+### node-fetch  
+&#x26A0; **Version 2.6.1 is used**  
 
 # Links
 ## Twitter
@@ -37,12 +19,14 @@ Using Twitter API V1
 [@jsalstats](https://twitter.com/jsalstats)  
 
 # Channels
-Only active channels are being tweeted out, however, all channel data is fetched to add to the total.  
-*(Channels tweeted about use estimated data, all the others use YouTube API data)*
+Only active channels are being tweeted out
 
 Channels tweeted:
 - JackSucksAtLife
 - JackSucksAtStuff
 - JackSucksAtGeography
-- No Context JackSucksAtLife
 - Geography Stuff 🌎
+
+# Version 5 notice
+Some files introduced in the old version cause some issues with the rewritten version.
+These files will be deleted or modified at a later date.

@@ -1,12 +1,11 @@
-# Ignore modules
 node_modules/
-
-# Ignore private files
 private/
 archive/
-
-# Ignore keys
 *.env
-
-## VSCode
 .vscode/*
+*.ps1
+twitterClient.js
+
+# Temp development files
+app_v1_new.js
+app.js
