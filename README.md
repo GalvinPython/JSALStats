@@ -15,7 +15,7 @@ The bot uses the following packages:
 
 # Links
 ## Twitter
-[@egalvinyt](https://wwww.twitter.com/egalvinyt)  
+[@egalvinyt](https://www.twitter.com/egalvinyt)  
 [@jsalstats](https://twitter.com/jsalstats)  
 
 # Channels

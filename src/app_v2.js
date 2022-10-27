@@ -144,7 +144,7 @@ function sendTweet() {
             \n\n❤ JSAL:\nSubs: ${JSALSubCount}\nViews: ${JSALViewCount}
             \n\n💛 JSAS:\nSubs: ${JSASSubCount}\nViews: ${JSASViewCount}
             \n\n💚 JSAG:\nSubs: ${JSAGSubCount}\nViews: ${JSAGViewCount}
-            \n\n💙 GS🌎:\nSubs: ${GSSubCount}\nViews ${GSViewCount}`);
+            \n\n💙 GS 🌎:\nSubs: ${GSSubCount}\nViews ${GSViewCount}`);
         } catch (e) {
             console.error(e);
         }
@@ -164,7 +164,4 @@ setInterval(sendTweet, 1000 * 60 * 60);
  * JSALStats is licensed under the MIT License
  * By GalvinPython 2021, 2022
  *
- * Note: V5 is using V4 code with new API endpoints
- * V5 script can be found in app_new.js
- * END OF CODE
  */
