@@ -1,3 +1,6 @@
+# JSALStats Site
+**Visit the [JSALStats Site](https://galvinpython.github.io) for more statistics!**
+
 # JSALStats
 Public repository for [JSALStats](https://twitter.com/jsalstats) on Twitter
 
@@ -15,7 +18,7 @@ The bot uses the following packages:
 
 # Links
 ## Twitter
-[@egalvinyt](https://www.twitter.com/egalvinyt)  
+[@egalvinyt](https://twitter.com/egalvinyt)  
 [@jsalstats](https://twitter.com/jsalstats)  
 
 # Channels
@@ -26,7 +29,3 @@ Channels tweeted:
 - JackSucksAtStuff
 - JackSucksAtGeography
 - Geography Stuff 🌎
-
-# Version 5 notice
-Some files introduced in the old version cause some issues with the rewritten version.
-These files will be deleted or modified at a later date.
