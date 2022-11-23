@@ -1,6 +1,6 @@
 {
   "name": "jsalstats",
-  "version": "5.0",
+  "version": "5.0.1",
   "description": "JSALStats Twitter Bot",
   "main": "app_v2.js",
   "dependencies": {

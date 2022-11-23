@@ -1,7 +1,7 @@
 /**
  * A Twitter Bot For Jack Massey Welsh's YouTube Statistics
  *
- * Version 5
+ * Version 5.0.1
  * Updated to Twitter API V2
  */
 /* REQUIRED MODULES */
@@ -30,7 +30,7 @@ const fetch = require("node-fetch");
 // Variables and Constants
 const baseURL = 'https://livecounts.xyz/api/youtube-live-subscriber-count/live';
 
-let JSALSubCount, JSALViewCount, JSASSubCount, JSASViewCount, JSAGSubCount, JSAGViewCount, GSSubCount, GSViewCount;
+let JSALSubCount, JSALViewCount, JSASSubCount, JSASViewCount, JSASProgress, JSAGSubCount, JSAGViewCount, GSSubCount, GSViewCount;
 
 function loop() {
 
@@ -54,7 +54,6 @@ function loop() {
         .then(data => {
             JSALSubCount = numeral(data.counts[0]).format('0,0');
             JSALViewCount = numeral(data.counts[1]).format('0,0');
-            console.log(`❤ JSAL! Subs: ${JSALSubCount}, Views: ${JSALViewCount}`);
         });
     };
 
@@ -69,7 +68,7 @@ function loop() {
         .then(data => {
             JSASSubCount = numeral(data.counts[0]).format('0,0');
             JSASViewCount = numeral(data.counts[1]).format('0,0');
-            console.log(`💛 JSAS! Subs: ${JSASSubCount}, Views: ${JSASViewCount}`);
+            JSASProgress = numeral(data.counts[0] - 1000000).format('0,0');
         });
     };
 
@@ -85,7 +84,6 @@ function loop() {
         .then(data => {
             JSAGSubCount = numeral(data.counts[0]).format('0,0');
             JSAGViewCount = numeral(data.counts[1]).format('0,0');
-            console.log(`💚 JSAG! Subs: ${JSAGSubCount}, Views: ${JSAGViewCount}`);
         });
     };
 
@@ -101,7 +99,6 @@ function loop() {
         .then(data => {
             GSSubCount = numeral(data.counts[0]).format('0,0');
             GSViewCount = numeral(data.counts[1]).format('0,0');
-            console.log(`🖤 GS! Subs: ${GSSubCount}, Views: ${GSViewCount}`);
         });
     };
 
@@ -142,7 +139,7 @@ function sendTweet() {
         try {
             await rwClient.tweet(`📅 ${dateandtime}
             \n\n❤ JSAL:\nSubs: ${JSALSubCount}\nViews: ${JSALViewCount}
-            \n\n💛 JSAS:\nSubs: ${JSASSubCount}\nViews: ${JSASViewCount}
+            \n\n💛 JSAS:\nSubs: ${JSASSubCount}\nViews: ${JSASViewCount} (${JSASProgress})
             \n\n💚 JSAG:\nSubs: ${JSAGSubCount}\nViews: ${JSAGViewCount}
             \n\n💙 GS 🌎:\nSubs: ${GSSubCount}\nViews ${GSViewCount}`);
         } catch (e) {
